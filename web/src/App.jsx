@@ -115,7 +115,9 @@ function Faq({ q, a }) {
   )
 }
 
-const ABOUT_IMG = '/about-me.jpg' // drop your photo at web/public/about-me.jpg (or swap this URL)
+// Your uploaded photo (IMG_2431.JPG). To host it with the site instead, download
+// this and save it as web/public/about-me.jpg, then set ABOUT_IMG = '/about-me.jpg'.
+const ABOUT_IMG = 'https://d2ol7oe51mr4n9.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/b58038c3-68ab-453a-ad85-ba2785026a67.jpg'
 
 function AboutImage() {
   const [ok, setOk] = useState(true)
