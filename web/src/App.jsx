@@ -3,6 +3,9 @@ import Silk from './components/Silk.jsx'
 import { Reveal, GradientText, ShinyText, TiltCard, SpotlightCard, Magnet, CountUp } from './components/bits.jsx'
 
 const CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM'
+// Reelo R play-button mark (transparent). To host with the site, save it as
+// web/public/logo.png and set LOGO_ICON = '/logo.png'.
+const LOGO_ICON = `${CDN}/hf_20260714_203445_9862aecc-6fa7-4066-9833-ac3a88522236.png`
 const media = {
   heroImg: `${CDN}/hf_20260714_043836_ce4109a3-b78d-4d83-8496-309d32c0803a.png`,
   work: [
@@ -66,7 +69,7 @@ function Nav() {
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
-        <a href="#top" className="logo"><span className="logo-mark" /><span>Reelo</span></a>
+        <a href="#top" className="logo"><img className="logo-mark" src={LOGO_ICON} alt="" /><span>Reelo</span></a>
         <nav className={`nav-links ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
           {links.map(([l, h]) => <a key={h} href={h}>{l}</a>)}
           <a href="#contact" className="btn btn-sm btn-primary">Work with us</a>
@@ -351,7 +354,7 @@ export default function App() {
 
         <footer className="footer">
           <div className="container footer-inner">
-            <div className="logo"><span className="logo-mark" /><span>Reelo</span></div>
+            <div className="logo"><img className="logo-mark" src={LOGO_ICON} alt="" /><span>Reelo</span></div>
             <p>Performance creative for product brands.</p>
             <p className="fine">All work marked "Spec Concept" is created independently and does not imply a client relationship.</p>
           </div>
