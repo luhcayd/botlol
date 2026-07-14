@@ -122,6 +122,23 @@ function Faq({ q, a }) {
 // this and save it as web/public/about-me.jpg, then set ABOUT_IMG = '/about-me.jpg'.
 const ABOUT_IMG = 'https://d2ol7oe51mr4n9.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/b58038c3-68ab-453a-ad85-ba2785026a67.jpg'
 
+const CONTACT_EMAIL = 'cayden.w.sims@gmail.com'
+
+// Until a real Formspree endpoint is set (replace YOUR_FORM_ID in the form action),
+// submitting opens the visitor's email app pre-filled and addressed to you, so the
+// form always works. Once YOUR_FORM_ID is replaced, it POSTs to Formspree instead.
+function handleContactSubmit(e) {
+  const form = e.currentTarget
+  if (!form.action.includes('YOUR_FORM_ID')) return // real endpoint set: let it POST
+  e.preventDefault()
+  const d = new FormData(form)
+  const subject = encodeURIComponent(`New inquiry from ${d.get('name') || 'the Reelo site'}`)
+  const body = encodeURIComponent(
+    `Name: ${d.get('name') || ''}\nEmail: ${d.get('email') || ''}\nBrand: ${d.get('brand') || ''}\n\n${d.get('message') || ''}`
+  )
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
+}
+
 function AboutImage() {
   const [ok, setOk] = useState(true)
   if (!ok) {
@@ -336,7 +353,7 @@ export default function App() {
                 <h2>Tell us about your <GradientText>product</GradientText></h2>
                 <p className="section-sub">Send a couple of details and we will come back with a few video ideas for your brand. No pressure, no hard sell.</p>
                 {/* Formspree: replace YOUR_FORM_ID, or delete the form and use the email button */}
-                <form className="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <form className="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onSubmit={handleContactSubmit}>
                   <div className="field-row">
                     <label>Name<input type="text" name="name" required placeholder="Your name" /></label>
                     <label>Email<input type="email" name="email" required placeholder="you@brand.com" /></label>
