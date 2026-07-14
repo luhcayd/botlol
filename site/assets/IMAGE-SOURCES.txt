@@ -1,0 +1,17 @@
+Source URLs for the site images (generated with Higgsfield, nano_banana model).
+
+Download these on your own machine and save them into this assets/ folder with
+the target filenames below, then point the img src attributes in index.html at
+the local assets/ paths. See ../README.md step 1.
+
+hero.jpg  (16:9 hero, UGC creator filming)
+  https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043836_ce4109a3-b78d-4d83-8496-309d32c0803a.png
+
+portfolio-1.jpg  (9:16 oral care concept)
+  https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043837_37bfa5a1-79b0-4a92-bf66-1cc4b6226a55.png
+
+portfolio-2.jpg  (9:16 pet product concept)
+  https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043839_f6c272de-8555-4421-a9f2-293648ece059.png
+
+portfolio-3.jpg  (9:16 kitchen/home concept)
+  https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043841_c190f729-7f90-4af3-8147-1d0da92480c4.png
