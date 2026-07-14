@@ -62,7 +62,7 @@ function Nav() {
     on()
     return () => window.removeEventListener('scroll', on)
   }, [])
-  const links = [['Work', '#portfolio'], ['Services', '#services'], ['How it works', '#how'], ['Pricing', '#pricing'], ['FAQ', '#faq']]
+  const links = [['Work', '#portfolio'], ['About', '#about'], ['Services', '#services'], ['How it works', '#how'], ['Pricing', '#pricing'], ['FAQ', '#faq']]
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
@@ -113,6 +113,22 @@ function Faq({ q, a }) {
       </div>
     </div>
   )
+}
+
+const ABOUT_IMG = '/about-me.jpg' // drop your photo at web/public/about-me.jpg (or swap this URL)
+
+function AboutImage() {
+  const [ok, setOk] = useState(true)
+  if (!ok) {
+    return (
+      <div className="about-ph">
+        <div className="about-ph-ico">📸</div>
+        <div>Add your photo</div>
+        <small>web/public/about-me.jpg</small>
+      </div>
+    )
+  }
+  return <img className="about-img" src={ABOUT_IMG} alt="Cayden, founder" onError={() => setOk(false)} />
 }
 
 export default function App() {
@@ -193,6 +209,32 @@ export default function App() {
               ))}
             </div>
             <p className="note">Hover to play. Swap these concepts for your real videos anytime.</p>
+          </div>
+        </section>
+
+        {/* ABOUT */}
+        <section className="section" id="about">
+          <div className="container">
+            <div className="about-grid">
+              <Reveal>
+                <TiltCard className="about-frame glass" max={7}>
+                  <AboutImage />
+                </TiltCard>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <div className="about-copy">
+                  <div className="eyebrow" style={{ color: 'var(--a2)' }}>About</div>
+                  <h2>Hey, I'm <GradientText>Cayden</GradientText></h2>
+                  <p>I create short product videos for social media and paid advertising. I started this studio because I kept watching great products lose to average ones for one reason: the average ones simply tested more creative.</p>
+                  <p>That is the whole game now. The brands that win are the ones putting more ads in front of the right people and learning fast. My job is to give you more of those ads, built like real ads and not just demos, so you have more shots at a winner.</p>
+                  <p>I use AI to move fast on production, but the strategy, the hooks, and the story are where the real work goes. If you make something worth showing, I would love to help you show it.</p>
+                  <div className="about-actions">
+                    <a href="#contact" className="btn btn-primary">Let's talk</a>
+                    <a href="#portfolio" className="btn btn-ghost">See the work</a>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </section>
 
