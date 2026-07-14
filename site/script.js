@@ -1,5 +1,6 @@
 // ============================================================
-//  Site interactions: nav state, mobile menu, scroll reveal
+//  Site interactions: nav state, mobile menu, scroll reveal,
+//  hover-to-play portfolio videos
 // ============================================================
 
 // Sticky nav background on scroll
@@ -15,7 +16,6 @@ onScroll();
 const toggle = document.getElementById('navToggle');
 const links = document.getElementById('navLinks');
 toggle.addEventListener('click', () => links.classList.toggle('open'));
-// Close menu when a link is tapped
 links.querySelectorAll('a').forEach((a) =>
   a.addEventListener('click', () => links.classList.remove('open'))
 );
@@ -32,19 +32,26 @@ if ('IntersectionObserver' in window) {
         }
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
   revealEls.forEach((el) => io.observe(el));
 } else {
   revealEls.forEach((el) => el.classList.add('in'));
 }
 
-// Portfolio play buttons: wire up when you add real video links.
-// Give a card's <button class="play"> a data-video="https://..." attribute
-// and it will open the video in a new tab.
-document.querySelectorAll('.play').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const url = btn.getAttribute('data-video');
-    if (url) window.open(url, '_blank', 'noopener');
-  });
+// Portfolio videos: play on hover / tap, pause otherwise (saves data on mobile)
+document.querySelectorAll('.work-media video').forEach((video) => {
+  const card = video.closest('.work');
+  const play = () => { video.play().catch(() => {}); };
+  const stop = () => { video.pause(); };
+  card.addEventListener('mouseenter', play);
+  card.addEventListener('mouseleave', stop);
+  // Touch devices: play the first time it scrolls into view
+  if ('IntersectionObserver' in window) {
+    const vio = new IntersectionObserver(
+      (entries) => entries.forEach((e) => (e.isIntersecting ? play() : stop())),
+      { threshold: 0.6 }
+    );
+    vio.observe(video);
+  }
 });

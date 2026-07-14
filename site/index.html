@@ -14,7 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
   <!-- No-JS / failsafe: if scripts are disabled or error, show all content -->
@@ -22,7 +22,7 @@
 
   <!-- =========================================================
        META PIXEL  —  paste your Pixel ID where it says PIXEL_ID
-       Remove this comment block once your ad account is live.
+       Uncomment once your ad account is live.
        ========================================================= -->
   <!--
   <script>
@@ -50,8 +50,8 @@
       <nav class="nav-links" id="navLinks">
         <a href="#portfolio">Work</a>
         <a href="#services">Services</a>
+        <a href="#how">How it works</a>
         <a href="#pricing">Pricing</a>
-        <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-sm btn-primary">Work with us</a>
       </nav>
@@ -62,40 +62,73 @@
   </header>
 
   <main id="top">
-    <!-- HERO -->
+    <!-- HERO (video-forward) -->
     <section class="hero">
+      <div class="hero-bg" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="container hero-inner">
         <div class="hero-copy reveal">
           <div class="eyebrow">AI UGC &amp; Paid Social Creative</div>
-          <h1>Performance Creative for Product Brands</h1>
+          <h1>Performance Creative for <span class="grad">Product Brands</span></h1>
           <p class="lead">We create AI UGC, product demonstrations, Meta ad creatives, and short-form videos designed to help brands test more creatives and scale winning ads.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Get video ideas for your brand</a>
-            <a href="#portfolio" class="btn btn-ghost">See the work</a>
+            <a href="#contact" class="btn btn-primary btn-lg">Get video ideas for your brand</a>
+            <a href="#portfolio" class="btn btn-ghost btn-lg">See the work</a>
           </div>
           <div class="hero-trust">
             <span>Built like ads, not demos</span>
             <span class="dot"></span>
             <span>Delivered ready to run</span>
             <span class="dot"></span>
-            <span>Made for creative testing</span>
+            <span>Made for testing</span>
           </div>
         </div>
+
         <div class="hero-media reveal">
-          <div class="hero-media-frame">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043836_ce4109a3-b78d-4d83-8496-309d32c0803a.png" alt="Content creator filming a product" loading="eager" />
-            <div class="hero-media-glow"></div>
+          <div class="phones">
+            <div class="phone phone-a">
+              <video autoplay muted loop playsinline poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043837_37bfa5a1-79b0-4a92-bf66-1cc4b6226a55.png">
+                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_045932_6ce9418c-67f7-4719-948f-564482d2c842.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="phone phone-b">
+              <video autoplay muted loop playsinline poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043839_f6c272de-8555-4421-a9f2-293648ece059.png">
+                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_045935_431d4baa-9d81-4d0a-8456-6b0394131ecc.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="phone phone-c">
+              <video autoplay muted loop playsinline poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043841_c190f729-7f90-4af3-8147-1d0da92480c4.png">
+                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_045936_5e24d8a5-44c0-4795-b3ec-f58d96d0a3c5.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MARQUEE / VALUE STRIP -->
-    <section class="strip">
-      <div class="container strip-inner">
-        <div class="strip-item"><strong>More creatives.</strong> More chances to find the hook that wins.</div>
-        <div class="strip-item"><strong>More testing.</strong> Volume is how winning ads get found.</div>
-        <div class="strip-item"><strong>Better performance.</strong> The video is the product. Results are the point.</div>
+    <!-- SOCIAL PROOF / INDUSTRIES STRIP -->
+    <section class="logos">
+      <div class="container">
+        <p class="logos-label">Concepts built for the kinds of brands we love</p>
+        <div class="logos-row">
+          <span>Oral Care</span>
+          <span>Pet Products</span>
+          <span>Kitchen</span>
+          <span>Home</span>
+          <span>Health</span>
+          <span>Cleaning</span>
+          <span>Lifestyle</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats">
+      <div class="container stats-inner">
+        <!-- Edit these to real numbers as you build a track record -->
+        <div class="stat reveal"><div class="stat-n">3&ndash;5</div><div class="stat-l">creatives per test batch</div></div>
+        <div class="stat reveal"><div class="stat-n">5-step</div><div class="stat-l">ad framework in every video</div></div>
+        <div class="stat reveal"><div class="stat-n">48h</div><div class="stat-l">first draft turnaround</div></div>
+        <div class="stat reveal"><div class="stat-n">$100</div><div class="stat-l">to start your first project</div></div>
       </div>
     </section>
 
@@ -104,15 +137,16 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Selected work</div>
-          <h2>Ad creative built to stop the scroll</h2>
+          <h2>Ad creative built to <span class="grad">stop the scroll</span></h2>
           <p class="section-sub">A few concepts across the kinds of brands we love. Spec work is clearly labeled, we never imply a brand hired us if they did not.</p>
         </div>
         <div class="portfolio-grid">
           <article class="work reveal">
             <div class="work-media">
-              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043837_37bfa5a1-79b0-4a92-bf66-1cc4b6226a55.png" alt="Oral care UGC ad concept" loading="lazy" />
+              <video muted loop playsinline poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043837_37bfa5a1-79b0-4a92-bf66-1cc4b6226a55.png">
+                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_045932_6ce9418c-67f7-4719-948f-564482d2c842.mp4" type="video/mp4" />
+              </video>
               <span class="badge">Spec Concept</span>
-              <button class="play" aria-label="Play preview"></button>
             </div>
             <div class="work-body">
               <h3>Oral Care</h3>
@@ -121,9 +155,10 @@
           </article>
           <article class="work reveal">
             <div class="work-media">
-              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043839_f6c272de-8555-4421-a9f2-293648ece059.png" alt="Pet product UGC ad concept" loading="lazy" />
+              <video muted loop playsinline poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043839_f6c272de-8555-4421-a9f2-293648ece059.png">
+                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_045935_431d4baa-9d81-4d0a-8456-6b0394131ecc.mp4" type="video/mp4" />
+              </video>
               <span class="badge">Spec Concept</span>
-              <button class="play" aria-label="Play preview"></button>
             </div>
             <div class="work-body">
               <h3>Pet Products</h3>
@@ -132,9 +167,10 @@
           </article>
           <article class="work reveal">
             <div class="work-media">
-              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043841_c190f729-7f90-4af3-8147-1d0da92480c4.png" alt="Kitchen product UGC ad concept" loading="lazy" />
+              <video muted loop playsinline poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_043841_c190f729-7f90-4af3-8147-1d0da92480c4.png">
+                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_045936_5e24d8a5-44c0-4795-b3ec-f58d96d0a3c5.mp4" type="video/mp4" />
+              </video>
               <span class="badge">Spec Concept</span>
-              <button class="play" aria-label="Play preview"></button>
             </div>
             <div class="work-body">
               <h3>Kitchen &amp; Home</h3>
@@ -142,7 +178,7 @@
             </div>
           </article>
         </div>
-        <p class="portfolio-note">Swap these placeholders for your real videos. Add a hosted video link to each card to make the play button live.</p>
+        <p class="portfolio-note">Hover to play. Swap these concepts for your real videos anytime.</p>
       </div>
     </section>
 
@@ -151,28 +187,47 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Services</div>
-          <h2>Everything you need to test more creative</h2>
+          <h2>Everything you need to <span class="grad">test more creative</span></h2>
           <p class="section-sub">One team for the whole creative, from the first hook to the final export.</p>
         </div>
         <div class="services-grid">
-          <div class="service-card reveal"><h3>AI UGC Videos</h3><p>Authentic creator-style videos built to feel real, not produced.</p></div>
-          <div class="service-card reveal"><h3>Product Demos</h3><p>Show the product in action in a way that sells the benefit.</p></div>
-          <div class="service-card reveal"><h3>Short-Form Ads</h3><p>Scroll-stopping ads for Reels, TikTok, and Shorts.</p></div>
-          <div class="service-card reveal"><h3>Meta Ad Creatives</h3><p>Creative built for the feed and ready to run in your ads.</p></div>
-          <div class="service-card reveal"><h3>Hook Variations</h3><p>Multiple openings so you can test which one pulls best.</p></div>
-          <div class="service-card reveal"><h3>Scripts &amp; Voiceovers</h3><p>Written on the hook, problem, solution, benefits, CTA framework.</p></div>
-          <div class="service-card reveal"><h3>Captions</h3><p>Clean, on-brand captions baked into every video.</p></div>
-          <div class="service-card reveal"><h3>Editing</h3><p>Paced and cut for retention, delivered ready to publish.</p></div>
+          <div class="service-card reveal"><div class="svc-ico">🎬</div><h3>AI UGC Videos</h3><p>Authentic creator-style videos built to feel real, not produced.</p></div>
+          <div class="service-card reveal"><div class="svc-ico">📦</div><h3>Product Demos</h3><p>Show the product in action in a way that sells the benefit.</p></div>
+          <div class="service-card reveal"><div class="svc-ico">⚡</div><h3>Short-Form Ads</h3><p>Scroll-stopping ads for Reels, TikTok, and Shorts.</p></div>
+          <div class="service-card reveal"><div class="svc-ico">🎯</div><h3>Meta Ad Creatives</h3><p>Creative built for the feed and ready to run in your ads.</p></div>
+          <div class="service-card reveal"><div class="svc-ico">🪝</div><h3>Hook Variations</h3><p>Multiple openings so you can test which one pulls best.</p></div>
+          <div class="service-card reveal"><div class="svc-ico">✍️</div><h3>Scripts &amp; Voiceovers</h3><p>Written on the hook, problem, solution, benefits, CTA framework.</p></div>
+          <div class="service-card reveal"><div class="svc-ico">💬</div><h3>Captions</h3><p>Clean, on-brand captions baked into every video.</p></div>
+          <div class="service-card reveal"><div class="svc-ico">✂️</div><h3>Editing</h3><p>Paced and cut for retention, delivered ready to publish.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">How it works</div>
+          <h2>From brief to ready-to-run in <span class="grad">five steps</span></h2>
+          <p class="section-sub">A simple process that keeps you in control and gets creative into your ad account fast.</p>
+        </div>
+        <div class="flow">
+          <div class="flow-line" aria-hidden="true"></div>
+          <div class="flow-step reveal"><div class="flow-n">1</div><h3>Brief</h3><p>Quick rundown of your product and what you want to test.</p></div>
+          <div class="flow-step reveal"><div class="flow-n">2</div><h3>Script &amp; concept</h3><p>We write the hook and lock the angle before filming.</p></div>
+          <div class="flow-step reveal"><div class="flow-n">3</div><h3>First draft</h3><p>You review the video and give notes.</p></div>
+          <div class="flow-step reveal"><div class="flow-n">4</div><h3>Revisions</h3><p>One round of changes included so it lands right.</p></div>
+          <div class="flow-step reveal"><div class="flow-n">5</div><h3>Delivery</h3><p>Final videos, ready to run on Meta and short-form.</p></div>
         </div>
       </div>
     </section>
 
     <!-- PRICING -->
-    <section class="section" id="pricing">
+    <section class="section section-alt" id="pricing">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Pricing</div>
-          <h2>Simple packages, built for testing</h2>
+          <h2>Simple packages, <span class="grad">built for testing</span></h2>
           <p class="section-sub">Introductory rates. More videos means more creatives to run against each other.</p>
         </div>
         <div class="pricing-grid">
@@ -222,23 +277,6 @@
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section class="section section-alt" id="process">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">Process</div>
-          <h2>From brief to ready-to-run in a few steps</h2>
-        </div>
-        <div class="process-grid">
-          <div class="step reveal"><span class="step-n">01</span><h3>Brief</h3><p>Quick rundown of your product and what you want to test.</p></div>
-          <div class="step reveal"><span class="step-n">02</span><h3>Script &amp; concept</h3><p>We write the hook and lock the angle before filming anything.</p></div>
-          <div class="step reveal"><span class="step-n">03</span><h3>First draft</h3><p>You review the video and give notes.</p></div>
-          <div class="step reveal"><span class="step-n">04</span><h3>Revisions</h3><p>One round of changes included so it lands right.</p></div>
-          <div class="step reveal"><span class="step-n">05</span><h3>Delivery</h3><p>Final videos, ready to run on Meta and short-form.</p></div>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section class="section" id="faq">
       <div class="container narrow">
@@ -249,7 +287,7 @@
         <div class="faq">
           <details class="reveal"><summary>What exactly do I get?</summary><p>Short product videos built like ads, not demos. Every video includes the script, voiceover, captions, and editing, delivered ready to run on Meta and short-form platforms.</p></details>
           <details class="reveal"><summary>How is this different from a normal UGC creator?</summary><p>We are not just handing you a clip. Every video follows a real ad framework, hook, problem, solution, benefits, call to action, and we build multiple versions so you can test what performs.</p></details>
-          <details class="reveal"><summary>How fast is turnaround?</summary><p>Most first projects are delivered quickly. We will confirm exact timing when we scope your batch.</p></details>
+          <details class="reveal"><summary>How fast is turnaround?</summary><p>Most first drafts land within a couple of days. We will confirm exact timing when we scope your batch.</p></details>
           <details class="reveal"><summary>Do you run the ads too?</summary><p>Right now we focus on the creative. Media buying and creative strategy are coming as we grow, but we will always be straight with you about what we do today.</p></details>
           <details class="reveal"><summary>Can I test different hooks?</summary><p>Yes. Hook variations are an add on so you can see which opening pulls best before spending more on ads.</p></details>
         </div>
@@ -277,7 +315,7 @@
             </div>
             <label>Brand / website<input type="text" name="brand" placeholder="brand.com" /></label>
             <label>What are you looking to test?<textarea name="message" rows="4" placeholder="A quick note about your product and goals"></textarea></label>
-            <button type="submit" class="btn btn-primary btn-block">Send it over</button>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Send it over</button>
           </form>
 
           <div class="contact-or">or email directly</div>

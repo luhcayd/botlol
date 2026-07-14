@@ -1,0 +1,16 @@
+Source URLs for the site videos (generated with Higgsfield, kling3_0_turbo,
+5 seconds, 720x1280 vertical). These animate the matching portfolio images.
+
+Download on your own machine, save into this assets/ folder with the target
+filenames, then point the <source src="..."> attributes in index.html at the
+local assets/ paths. Each video is used twice: once in the hero phone frames and
+once in the portfolio grid. See ../README.md step 1.
+
+portfolio-1.mp4  (oral care, animates portfolio-1.jpg)
+  https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_045932_6ce9418c-67f7-4719-948f-564482d2c842.mp4
+
+portfolio-2.mp4  (pet product, animates portfolio-2.jpg)
+  https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_045935_431d4baa-9d81-4d0a-8456-6b0394131ecc.mp4
+
+portfolio-3.mp4  (kitchen/home, animates portfolio-3.jpg)
+  https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/hf_20260714_045936_5e24d8a5-44c0-4795-b3ec-f58d96d0a3c5.mp4

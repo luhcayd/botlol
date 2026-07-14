@@ -31,22 +31,17 @@ Any static host works. Easiest options:
 
 ## Before you go live: three things to set
 
-### 1. Localize the portfolio images (recommended)
+### 1. Localize the images and videos (recommended)
 
-The images were generated with Higgsfield and currently load from Higgsfield's
-CDN. That works, but for a site you own you want the images hosted with the site
-so they never break. On your own computer (not the sandbox), download these four
-into `site/assets/` with these exact names:
-
-- `hero.jpg`
-- `portfolio-1.jpg`
-- `portfolio-2.jpg`
-- `portfolio-3.jpg`
-
-The URLs are in `assets/IMAGE-SOURCES.txt`. Then in `index.html`, swap each
-`https://d8j0ntlcm91z4.cloudfront.net/...` image `src` back to the matching
-`assets/...jpg` path. When you replace the placeholder concepts with your real
-video thumbnails, just drop those in instead.
+The hero and portfolio use short UGC video clips plus poster images, all
+generated with Higgsfield and currently loading from Higgsfield's CDN. That
+works, but for a site you own you want the media hosted with the site so it
+never breaks. On your own computer (not the sandbox), download the files listed
+in `assets/IMAGE-SOURCES.txt` (images) and `assets/VIDEO-SOURCES.txt` (videos)
+into `site/assets/`, then in `index.html` swap each
+`https://d8j0ntlcm91z4.cloudfront.net/...` `src` for the matching local
+`assets/...` path. When you have your real UGC videos, just drop those in
+instead, same filenames.
 
 ### 2. Wire up the contact form
 
