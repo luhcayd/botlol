@@ -1,6 +1,6 @@
 # Business and Operations Plan
 
-Working name: Performance Creative Studio (placeholder until final brand is chosen)
+Brand name: Reelo
 
 Last updated: 2026-07-13
 

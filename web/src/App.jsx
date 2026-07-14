@@ -66,7 +66,7 @@ function Nav() {
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
-        <a href="#top" className="logo"><span className="logo-mark" /><span>Studio</span></a>
+        <a href="#top" className="logo"><span className="logo-mark" /><span>Reelo</span></a>
         <nav className={`nav-links ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
           {links.map(([l, h]) => <a key={h} href={h}>{l}</a>)}
           <a href="#contact" className="btn btn-sm btn-primary">Work with us</a>
@@ -351,7 +351,7 @@ export default function App() {
 
         <footer className="footer">
           <div className="container footer-inner">
-            <div className="logo"><span className="logo-mark" /><span>Studio</span></div>
+            <div className="logo"><span className="logo-mark" /><span>Reelo</span></div>
             <p>Performance creative for product brands.</p>
             <p className="fine">All work marked "Spec Concept" is created independently and does not imply a client relationship.</p>
           </div>
