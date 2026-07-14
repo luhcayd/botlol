@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import Silk from './components/Silk.jsx'
 import { Reveal, GradientText, ShinyText, TiltCard, SpotlightCard, Magnet, CountUp } from './components/bits.jsx'
 
@@ -122,21 +123,43 @@ function Faq({ q, a }) {
 // this and save it as web/public/about-me.jpg, then set ABOUT_IMG = '/about-me.jpg'.
 const ABOUT_IMG = 'https://d2ol7oe51mr4n9.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM/b58038c3-68ab-453a-ad85-ba2785026a67.jpg'
 
-const CONTACT_EMAIL = 'cayden.w.sims@gmail.com'
+// Contact form wired to Formspree. Submits silently in the background and shows a
+// success state, no page redirect. To point at a different form, change the ID below.
+function ContactForm() {
+  const [state, handleSubmit] = useForm('maqrnpnb')
 
-// Until a real Formspree endpoint is set (replace YOUR_FORM_ID in the form action),
-// submitting opens the visitor's email app pre-filled and addressed to you, so the
-// form always works. Once YOUR_FORM_ID is replaced, it POSTs to Formspree instead.
-function handleContactSubmit(e) {
-  const form = e.currentTarget
-  if (!form.action.includes('YOUR_FORM_ID')) return // real endpoint set: let it POST
-  e.preventDefault()
-  const d = new FormData(form)
-  const subject = encodeURIComponent(`New inquiry from ${d.get('name') || 'the Reelo site'}`)
-  const body = encodeURIComponent(
-    `Name: ${d.get('name') || ''}\nEmail: ${d.get('email') || ''}\nBrand: ${d.get('brand') || ''}\n\n${d.get('message') || ''}`
+  if (state.succeeded) {
+    return (
+      <div className="contact-success">
+        <div className="cs-check">✓</div>
+        <h3>Thanks, got it.</h3>
+        <p>Your message is on its way. I will get back to you soon.</p>
+      </div>
+    )
+  }
+
+  return (
+    <form className="contact-form" onSubmit={handleSubmit}>
+      <div className="field-row">
+        <label>Name<input type="text" name="name" required placeholder="Your name" /></label>
+        <label>
+          Email
+          <input type="email" name="email" required placeholder="you@brand.com" />
+          <ValidationError prefix="Email" field="email" errors={state.errors} className="fs-err" />
+        </label>
+      </div>
+      <label>Brand / website<input type="text" name="brand" placeholder="brand.com" /></label>
+      <label>
+        What are you looking to test?
+        <textarea name="message" rows="4" placeholder="A quick note about your product and goals" />
+        <ValidationError prefix="Message" field="message" errors={state.errors} className="fs-err" />
+      </label>
+      <button type="submit" className="btn btn-primary btn-block btn-lg" disabled={state.submitting}>
+        {state.submitting ? 'Sending' : 'Send it over'}
+      </button>
+      <ValidationError errors={state.errors} className="fs-err" />
+    </form>
   )
-  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
 }
 
 function AboutImage() {
@@ -352,16 +375,7 @@ export default function App() {
                 <div className="eyebrow" style={{ color: 'var(--a3)' }}>Contact</div>
                 <h2>Tell us about your <GradientText>product</GradientText></h2>
                 <p className="section-sub">Send a couple of details and we will come back with a few video ideas for your brand. No pressure, no hard sell.</p>
-                {/* Formspree: replace YOUR_FORM_ID, or delete the form and use the email button */}
-                <form className="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onSubmit={handleContactSubmit}>
-                  <div className="field-row">
-                    <label>Name<input type="text" name="name" required placeholder="Your name" /></label>
-                    <label>Email<input type="email" name="email" required placeholder="you@brand.com" /></label>
-                  </div>
-                  <label>Brand / website<input type="text" name="brand" placeholder="brand.com" /></label>
-                  <label>What are you looking to test?<textarea name="message" rows="4" placeholder="A quick note about your product and goals" /></label>
-                  <button type="submit" className="btn btn-primary btn-block btn-lg">Send it over</button>
-                </form>
+                <ContactForm />
                 <div className="contact-or">or email directly</div>
                 <a className="email-link" href="mailto:cayden.w.sims@gmail.com?subject=UGC%20video%20inquiry">cayden.w.sims@gmail.com</a>
               </SpotlightCard>
