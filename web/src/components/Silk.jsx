@@ -86,9 +86,9 @@ export default function Silk() {
       uniforms: {
         uTime: { value: 0 },
         uResolution: { value: [1, 1] },
-        uColorA: { value: [0.36, 0.42, 0.85] }, // periwinkle
-        uColorB: { value: [0.20, 0.62, 0.68] }, // aqua
-        uColorC: { value: [0.62, 0.52, 0.9] },  // lilac
+        uColorA: { value: [1.0, 0.478, 0.302] }, // ember coral
+        uColorB: { value: [1.0, 0.760, 0.294] }, // warm gold
+        uColorC: { value: [1.0, 0.361, 0.541] }, // rose
       },
     })
     const mesh = new Mesh(gl, { geometry, program })

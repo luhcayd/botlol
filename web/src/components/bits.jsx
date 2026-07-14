@@ -79,7 +79,7 @@ export function SpotlightCard({ children, className = '' }) {
         style={{
           position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0,
           opacity: pos.on ? 1 : 0, transition: 'opacity .3s',
-          background: `radial-gradient(340px circle at ${pos.x}px ${pos.y}px, rgba(124,139,255,0.16), transparent 60%)`,
+          background: `radial-gradient(340px circle at ${pos.x}px ${pos.y}px, rgba(255,138,77,0.16), transparent 60%)`,
         }}
       />
       <div style={{ position: 'relative', zIndex: 1, height: '100%' }}>{children}</div>

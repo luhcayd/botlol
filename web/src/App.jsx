@@ -8,7 +8,7 @@ const media = {
   work: [
     {
       title: 'Oral Care',
-      copy: 'Hook-led problem to solution ad for a premium electric toothbrush.',
+      copy: 'Hook led problem to solution ad for a premium electric toothbrush.',
       poster: `${CDN}/hf_20260714_043837_37bfa5a1-79b0-4a92-bf66-1cc4b6226a55.png`,
       video: `${CDN}/hf_20260714_045932_6ce9418c-67f7-4719-948f-564482d2c842.mp4`,
     },
@@ -29,13 +29,13 @@ const media = {
 
 const industries = ['Oral Care', 'Pet Products', 'Kitchen', 'Home', 'Health', 'Cleaning', 'Lifestyle', 'Beauty']
 const services = [
-  ['🎬', 'AI UGC Videos', 'Authentic creator-style videos built to feel real, not produced.'],
+  ['🎬', 'AI UGC Videos', 'Authentic creator style videos built to feel real, not produced.'],
   ['📦', 'Product Demos', 'Show the product in action in a way that sells the benefit.'],
-  ['⚡', 'Short-Form Ads', 'Scroll-stopping ads for Reels, TikTok, and Shorts.'],
+  ['⚡', 'Short Form Ads', 'Scroll stopping ads for Reels, TikTok, and Shorts.'],
   ['🎯', 'Meta Ad Creatives', 'Creative built for the feed and ready to run in your ads.'],
   ['🪝', 'Hook Variations', 'Multiple openings so you can test which one pulls best.'],
   ['✍️', 'Scripts & Voiceovers', 'Written on the hook, problem, solution, benefits, CTA framework.'],
-  ['💬', 'Captions', 'Clean, on-brand captions baked into every video.'],
+  ['💬', 'Captions', 'Clean, on brand captions baked into every video.'],
   ['✂️', 'Editing', 'Paced and cut for retention, delivered ready to publish.'],
 ]
 const steps = [
@@ -43,10 +43,10 @@ const steps = [
   ['Script & concept', 'We write the hook and lock the angle before filming.'],
   ['First draft', 'You review the video and give notes.'],
   ['Revisions', 'One round of changes included so it lands right.'],
-  ['Delivery', 'Final videos, ready to run on Meta and short-form.'],
+  ['Delivery', 'Final videos, ready to run on Meta and short form.'],
 ]
 const faqs = [
-  ['What exactly do I get?', 'Short product videos built like ads, not demos. Every video includes the script, voiceover, captions, and editing, delivered ready to run on Meta and short-form platforms.'],
+  ['What exactly do I get?', 'Short product videos built like ads, not demos. Every video includes the script, voiceover, captions, and editing, delivered ready to run on Meta and short form platforms.'],
   ['How is this different from a normal UGC creator?', 'We are not just handing you a clip. Every video follows a real ad framework, hook, problem, solution, benefits, call to action, and we build multiple versions so you can test what performs.'],
   ['How fast is turnaround?', 'Most first drafts land within a couple of days. We will confirm exact timing when we scope your batch.'],
   ['Do you run the ads too?', 'Right now we focus on the creative. Media buying and creative strategy are coming as we grow, but we will always be straight with you about what we do today.'],
@@ -145,7 +145,7 @@ export default function App() {
             <Reveal className="hero-copy">
               <div className="eyebrow"><span className="pulse" /> AI UGC &amp; Paid Social Creative</div>
               <h1>Performance Creative for <GradientText>Product Brands</GradientText></h1>
-              <p className="lead">We create AI UGC, product demonstrations, Meta ad creatives, and short-form videos designed to help brands test more creatives and scale winning ads.</p>
+              <p className="lead">We create AI UGC, product demonstrations, Meta ad creatives, and short form videos designed to help brands test more creatives and scale winning ads.</p>
               <div className="hero-actions">
                 <Magnet strength={0.35}><a href="#contact" className="btn btn-primary btn-lg">Get video ideas for your brand</a></Magnet>
                 <a href="#portfolio" className="btn btn-ghost btn-lg">See the work</a>
@@ -180,8 +180,8 @@ export default function App() {
         <section className="stats">
           <div className="container stats-inner">
             {[
-              [<CountUp key="a" value={5} prefix="3–" />, 'creatives per test batch'],
-              [<><CountUp key="b" value={5} />-step</>, 'ad framework in every video'],
+              [<span key="a">3 to 5</span>, 'creatives per test batch'],
+              [<><CountUp key="b" value={5} /> step</>, 'ad framework in every video'],
               [<CountUp key="c" value={48} suffix="h" />, 'first draft turnaround'],
               [<CountUp key="d" value={100} prefix="$" />, 'to start your first project'],
             ].map(([n, l], i) => (
@@ -261,7 +261,7 @@ export default function App() {
           <div className="container">
             <Reveal className="section-head">
               <div className="eyebrow" style={{ color: 'var(--a3)' }}>How it works</div>
-              <h2>From brief to ready-to-run in <GradientText>five steps</GradientText></h2>
+              <h2>From brief to ready to run in <GradientText>five steps</GradientText></h2>
               <p className="section-sub">A simple process that keeps you in control and gets creative into your ad account fast.</p>
             </Reveal>
             <div className="flow">
