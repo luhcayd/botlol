@@ -3,8 +3,16 @@ Config v5: Stealth mode + appearance-based alerts on search pages,
 per-store keywords, and product-page monitoring.
 """
 
-DISCORD_WEBHOOK_URL = "https://discordapp.com/api/webhooks/1445960601665802392/ousoXLnn0oiIK9Z-0_Se-R7jCp-EhapMKuanruFgyMoJH7DHNR9u8g1t1X0eyAFSOgAR"
-USER_ID_TO_PING = "1426740804688281701"
+import os
+
+# Secrets are read from environment variables so they are never committed.
+# Set these before running, e.g. in a .env or your shell:
+#   export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+#   export USER_ID_TO_PING="123456789012345678"
+# NOTE: the webhook that used to live here was leaked in git history and must be
+# rotated (delete it in Discord > Server Settings > Integrations, create a new one).
+DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
+USER_ID_TO_PING = os.environ.get("USER_ID_TO_PING", "")
 
 # Base delay between full rounds of checks (in seconds)
 CHECK_INTERVAL = 60

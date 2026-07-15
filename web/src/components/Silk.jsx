@@ -71,56 +71,61 @@ export default function Silk() {
 
   useEffect(() => {
     const host = ref.current
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const renderer = new Renderer({ dpr: Math.min(window.devicePixelRatio, 1.5), alpha: false })
-    const gl = renderer.gl
-    gl.clearColor(0.02, 0.024, 0.04, 1)
-    host.appendChild(gl.canvas)
-    gl.canvas.style.width = '100%'
-    gl.canvas.style.height = '100%'
+    if (!host) return
 
-    const geometry = new Triangle(gl)
-    const program = new Program(gl, {
-      vertex,
-      fragment,
-      uniforms: {
-        uTime: { value: 0 },
-        uResolution: { value: [1, 1] },
-        uColorA: { value: [1.0, 0.478, 0.302] }, // ember coral
-        uColorB: { value: [1.0, 0.760, 0.294] }, // warm gold
-        uColorC: { value: [1.0, 0.361, 0.541] }, // rose
-      },
-    })
-    const mesh = new Mesh(gl, { geometry, program })
+    let renderer, gl, raf, resize
+    try {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      renderer = new Renderer({ dpr: Math.min(window.devicePixelRatio, 1.5), alpha: false })
+      gl = renderer.gl
+      gl.clearColor(0.02, 0.024, 0.04, 1)
+      host.appendChild(gl.canvas)
+      gl.canvas.style.width = '100%'
+      gl.canvas.style.height = '100%'
 
-    const resize = () => {
-      const w = host.clientWidth
-      const h = host.clientHeight
-      renderer.setSize(w, h)
-      program.uniforms.uResolution.value = [gl.drawingBufferWidth, gl.drawingBufferHeight]
-    }
-    window.addEventListener('resize', resize)
-    resize()
+      const geometry = new Triangle(gl)
+      const program = new Program(gl, {
+        vertex,
+        fragment,
+        uniforms: {
+          uTime: { value: 0 },
+          uResolution: { value: [1, 1] },
+          uColorA: { value: [1.0, 0.478, 0.302] }, // ember coral
+          uColorB: { value: [1.0, 0.760, 0.294] }, // warm gold
+          uColorC: { value: [1.0, 0.361, 0.541] }, // rose
+        },
+      })
+      const mesh = new Mesh(gl, { geometry, program })
 
-    let raf
-    const start = performance.now()
-    const loop = (now) => {
-      program.uniforms.uTime.value = (now - start) / 1000
-      renderer.render({ scene: mesh })
-      raf = requestAnimationFrame(loop)
-    }
-    if (reduce) {
-      program.uniforms.uTime.value = 8
-      renderer.render({ scene: mesh })
-    } else {
-      raf = requestAnimationFrame(loop)
+      resize = () => {
+        renderer.setSize(host.clientWidth, host.clientHeight)
+        program.uniforms.uResolution.value = [gl.drawingBufferWidth, gl.drawingBufferHeight]
+      }
+      window.addEventListener('resize', resize)
+      resize()
+
+      const start = performance.now()
+      const loop = (now) => {
+        program.uniforms.uTime.value = (now - start) / 1000
+        renderer.render({ scene: mesh })
+        raf = requestAnimationFrame(loop)
+      }
+      if (reduce) {
+        program.uniforms.uTime.value = 8
+        renderer.render({ scene: mesh })
+      } else {
+        raf = requestAnimationFrame(loop)
+      }
+    } catch (err) {
+      // WebGL unavailable or blocked: fail silently, the CSS backdrop stays.
+      return
     }
 
     return () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener('resize', resize)
-      if (gl.canvas.parentNode) gl.canvas.parentNode.removeChild(gl.canvas)
-      const ext = gl.getExtension('WEBGL_lose_context')
+      if (raf) cancelAnimationFrame(raf)
+      if (resize) window.removeEventListener('resize', resize)
+      if (gl && gl.canvas && gl.canvas.parentNode) gl.canvas.parentNode.removeChild(gl.canvas)
+      const ext = gl && gl.getExtension('WEBGL_lose_context')
       if (ext) ext.loseContext()
     }
   }, [])
