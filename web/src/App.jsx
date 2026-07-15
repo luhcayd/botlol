@@ -189,7 +189,7 @@ export default function App() {
             <Reveal className="hero-copy">
               <div className="eyebrow"><span className="pulse" /> AI UGC &amp; Paid Social Creative</div>
               <h1>Creative That Scales <GradientText>Winning Ads</GradientText></h1>
-              <p className="lead">We create AI UGC, product demonstrations, Meta ad creatives, and short form videos, so you can test more creative and find what actually performs.</p>
+              <p className="lead">We create AI UGC, Meta ad creatives, and product videos designed to help brands test more creatives and scale winning ads.</p>
               <div className="hero-actions">
                 <Magnet strength={0.35}><a href="#contact" className="btn btn-primary btn-lg">Get video ideas for your brand</a></Magnet>
                 <a href="#portfolio" className="btn btn-ghost btn-lg">See the work</a>
