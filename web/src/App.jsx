@@ -49,23 +49,12 @@ const bento = [
   ['🔁', 'Scale the winners', 'We take what performs and push more angles to scale it further.', 'b-wide'],
 ]
 
-const steps = [
-  ['Research', 'We study your product, your buyer, and the ads already winning in your space.'],
-  ['Concept', 'We choose the angles worth testing and the hooks most likely to land.'],
-  ['Script', 'We write to a real ad framework: hook, problem, solution, benefit, call to action.'],
-  ['Production', 'We produce the footage fast using an AI assisted workflow.'],
-  ['Editing', 'We cut for retention and hook strength, the way performance ads are built.'],
-  ['Delivery', 'You get clean, launch ready files sized for Meta and short form.'],
-  ['Testing', 'You run the batch and let the audience tell you what performs.'],
-  ['Iteration', 'We take the winners and spin up fresh angles to scale them.'],
-]
-
 const faqs = [
   ['How long does production take?', 'Most first drafts land within a couple of days. Larger batches are planned up front and we confirm exact timing when we scope your project.'],
   ['Can you work with our existing ads?', 'Yes. We can build new hooks and angles around what is already running, or start fresh. Either way the goal is more creative to test.'],
   ['Can you create AI UGC?', 'Yes. AI UGC is core to what we do, produced to feel like a real creator filmed it, not like a polished ad.'],
   ['Do I need to send you products?', 'Often no. Because the work is AI assisted, we can usually start from your images and product details. If a concept genuinely needs the physical product, we will tell you up front.'],
-  ['Can you manage our Meta ads?', 'Not yet. Today we focus entirely on the creative. Media buying is on our roadmap, and we will always be straight about what we do now versus later.'],
+  ['Do you help with Meta campaigns?', 'Yes, on the setup and testing side. We help structure and organize campaigns for creative testing and support the launch and optimization of your creative. We are not your day to day media buyer managing spend and bidding, that stays with you or your buyer.'],
   ['How many revisions are included?', 'One round of revisions is included on every video. Extra rounds are a simple add on.'],
 ]
 
@@ -87,6 +76,20 @@ const categories = ['Oral Care', 'Pet', 'Cleaning', 'Kitchen', 'Health', 'Beauty
 const adOptions = ['Running Meta Ads', 'Running TikTok Ads', 'Running Google Ads', 'Organic Only', 'No Advertising Yet']
 const goalOptions = ['Increase Sales', 'Lower CPA', 'Launch Product', 'Generate UGC', 'Refresh Existing Ads', 'Need New Creatives', 'Testing New Hooks', 'Other']
 
+const metaCards = [
+  ['🎬', 'Creative Production', 'We create AI UGC, product demonstrations, hook variations, and performance creatives designed specifically for paid social.', ['AI UGC', 'Product Demonstrations', 'Hook Variations', 'Voiceovers', 'Scripts', 'Editing']],
+  ['🧩', 'Meta Campaign Setup', 'Once the creative is ready, we help structure campaigns so your testing stays organized and scalable.', ['Campaign Structure', 'Ad Set Creation', 'Audience Setup', 'Pixel Verification (where applicable)', 'Campaign Organization', 'Creative Upload']],
+  ['🧪', 'Creative Testing', 'Great advertising comes from testing. We help brands compare creatives, identify winning concepts, and improve future content.', ['Creative Testing', 'Hook Testing', 'A/B Testing Strategy', 'Performance Reviews', 'Creative Recommendations', 'Monthly Refresh Plans']],
+]
+const flowSteps = ['Research', 'Creative Strategy', 'Script', 'Production', 'Meta Campaign Setup', 'Launch', 'Creative Testing', 'Optimization', 'Scale']
+const tradList = ['Creates one video', 'Delivers files', 'Ends after delivery', 'One creative angle', 'Limited testing']
+const reeloList = ['Creates multiple ad concepts', 'Produces performance focused creative', 'Helps organize campaign launches', 'Builds multiple hooks', 'Supports creative testing', 'Plans future iterations']
+const receiveItems = [
+  ['🎬', 'Ready to launch videos'], ['🧠', 'Creative strategy'], ['✍️', 'Scripts'],
+  ['🎙️', 'Voiceovers'], ['🪝', 'Hook variations'], ['🧩', 'Meta campaign setup'],
+  ['🧪', 'Creative testing plan'], ['📁', 'Organized delivery files'], ['📈', 'Future optimization ideas'],
+]
+
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -96,7 +99,7 @@ function Nav() {
     on()
     return () => window.removeEventListener('scroll', on)
   }, [])
-  const links = [['Work', '#work'], ['What you get', '#services'], ['Approach', '#approach'], ['Process', '#process'], ['Pricing', '#pricing'], ['FAQ', '#faq']]
+  const links = [['Work', '#work'], ['What you get', '#services'], ['Advertising', '#scale'], ['Approach', '#approach'], ['Pricing', '#pricing'], ['FAQ', '#faq']]
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
@@ -199,6 +202,88 @@ function CreativeLibrary({ onRequest }) {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
+
+function ScaleSection() {
+  return (
+    <section className="section scale" id="scale">
+      <div className="container">
+        <Reveal className="section-head">
+          <div className="eyebrow" style={{ color: 'var(--a1)' }}>Beyond the video</div>
+          <h2>Scale Your Ads, <GradientText>Not Just Your Content</GradientText></h2>
+          <p className="section-sub">Creating great ads is only the first step. We help brands launch, test, and optimize Meta campaigns so great creative actually turns into results.</p>
+        </Reveal>
+
+        <Reveal className="scale-intro">
+          <p>Most brands pour everything into one hero ad and hope it works. The brands that actually scale do the opposite: they test constantly. Reelo produces the volume of creative that testing needs, and helps you organize and launch Meta campaigns built for it, so your best ideas get found faster and your winners get pushed further.</p>
+        </Reveal>
+
+        {/* Three cards */}
+        <div className="mcards">
+          {metaCards.map(([ico, t, d, list], i) => (
+            <Reveal key={t} delay={i * 0.1}>
+              <SpotlightCard className="mcard">
+                <div className="mc-ico">{ico}</div>
+                <h3>{t}</h3>
+                <p>{d}</p>
+                <ul className="mc-list">{list.map((l) => <li key={l}>{l}</li>)}</ul>
+              </SpotlightCard>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Workflow */}
+        <Reveal className="scale-sub"><h3>From idea to scale, one system</h3></Reveal>
+        <div className="flowh">
+          {flowSteps.map((s, i) => (
+            <Reveal key={s} className="fstep" delay={i * 0.05}>
+              <div className="fnum">{String(i + 1).padStart(2, '0')}</div>
+              <div className="flabel">{s}</div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Comparison */}
+        <Reveal className="scale-sub"><h3>Why Brands Choose Reelo</h3></Reveal>
+        <div className="cmp">
+          <Reveal className="cmp-cell">
+            <div className="cmp-card glass cmp-trad">
+              <span className="cmp-tag">Traditional creator</span>
+              <ul>{tradList.map((l) => <li key={l} className="cmp-neutral">{l}</li>)}</ul>
+            </div>
+          </Reveal>
+          <Reveal className="cmp-cell" delay={0.1}>
+            <div className="cmp-card glass cmp-reelo">
+              <span className="cmp-tag on">Reelo</span>
+              <ul>{reeloList.map((l) => <li key={l} className="cmp-yes">{l}</li>)}</ul>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* What you receive */}
+        <Reveal className="scale-sub"><h3>What you receive</h3></Reveal>
+        <div className="receive">
+          {receiveItems.map(([ico, t], i) => (
+            <Reveal key={t} delay={(i % 3) * 0.06}>
+              <div className="rcard glass"><span className="ri">{ico}</span><span>{t}</span></div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <Reveal>
+          <div className="scale-cta glass">
+            <h3>Ready To Scale Your Creative?</h3>
+            <p>Whether you need new ad creatives, campaign setup, or a better creative testing workflow, we will help build a system designed for long term growth.</p>
+            <div className="scale-cta-actions">
+              <Magnet strength={0.28}><a href="#contact" className="btn btn-primary btn-lg">Start Your Project</a></Magnet>
+              <a href="#library" className="btn btn-ghost btn-lg">Browse Creative Library</a>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -357,6 +442,9 @@ export default function App() {
           </div>
         </section>
 
+        {/* SCALE / META ADVERTISING */}
+        <ScaleSection />
+
         {/* APPROACH / PHILOSOPHY */}
         <section className="section approach" id="approach">
           <div className="container">
@@ -381,25 +469,6 @@ export default function App() {
                   <p className="signoff">Cayden, founder of Reelo</p>
                 </div>
               </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* PROCESS */}
-        <section className="section" id="process">
-          <div className="container">
-            <Reveal className="section-head">
-              <div className="eyebrow" style={{ color: 'var(--a1)' }}>Creative workflow</div>
-              <h2>How winning ads <GradientText>get built</GradientText></h2>
-              <p className="section-sub">A clear path from research to results, built to keep creative flowing into your account.</p>
-            </Reveal>
-            <div className="timeline">
-              {steps.map(([t, d], i) => (
-                <Reveal key={t} className="tl-step" delay={i * 0.05}>
-                  <div className="tl-num">{String(i + 1).padStart(2, '0')}</div>
-                  <div className="tl-body"><h3>{t}</h3><p>{d}</p></div>
-                </Reveal>
-              ))}
             </div>
           </div>
         </section>
