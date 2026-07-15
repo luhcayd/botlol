@@ -72,7 +72,7 @@ function Nav() {
         <a href="#top" className="logo"><img className="logo-mark" src={LOGO_ICON} alt="" /><span>Reelo</span></a>
         <nav className={`nav-links ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
           {links.map(([l, h]) => <a key={h} href={h}>{l}</a>)}
-          <a href="#contact" className="btn btn-sm btn-primary">Work with me</a>
+          <a href="#contact" className="btn btn-sm btn-primary">Work with us</a>
         </nav>
         <button className="nav-toggle" aria-label="Menu" onClick={() => setOpen((o) => !o)}>
           <span /><span /><span />
