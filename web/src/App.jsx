@@ -240,7 +240,7 @@ function ContactForm({ prefill }) {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} encType="multipart/form-data">
+    <form className="contact-form" onSubmit={handleSubmit}>
       <div className="field-row">
         <label>Full name *<input type="text" name="name" required placeholder="Your name" /></label>
         <label>Company *<input type="text" name="company" required placeholder="Brand name" /></label>
@@ -273,9 +273,6 @@ function ContactForm({ prefill }) {
         </select>
       </label>
       <label>Message<textarea name="message" rows="4" placeholder="Tell us about your product, your goals, and anything you'd like us to know." /></label>
-      <label className="file-label">Attach files <span className="file-hint">product photos, logos, brand guidelines, existing ads</span>
-        <input type="file" name="attachments" multiple accept="image/*,video/*,.pdf,.doc,.docx" />
-      </label>
       <button type="submit" className="btn btn-primary btn-block btn-lg" disabled={state.submitting}>{state.submitting ? 'Sending' : 'Get My Creative Strategy'}</button>
       <ValidationError errors={state.errors} className="fs-err" />
     </form>
