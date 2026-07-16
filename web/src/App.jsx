@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { useForm, ValidationError } from '@formspree/react'
 import Silk from './components/Silk.jsx'
-import { Reveal, GradientText, TiltCard, SpotlightCard, Magnet } from './components/bits.jsx'
+import { Reveal, GradientText, TiltCard, SpotlightCard, Magnet, ScrollProgress, BlurText, ShinyText, CountUp } from './components/bits.jsx'
+import { Icon, ArrowRight } from './components/icons.jsx'
 
 const CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_3FrxMmwyrpxV5e9rD7zw9F7uElM'
 const LOGO_ICON = `${CDN}/hf_20260714_203445_9862aecc-6fa7-4066-9833-ac3a88522236.png`
@@ -22,14 +22,11 @@ const P = {
   kitchen: `${CDN}/hf_20260714_043841_c190f729-7f90-4af3-8147-1d0da92480c4.png`,
 }
 
-// Floating creative wall tiles (layered, different sizes, rotations)
-const wall = [
-  { v: V.oral, cls: 'tile-a' },
-  { v: V.skin, cls: 'tile-b' },
-  { v: V.kitchen, cls: 'tile-c' },
-  { v: V.greens, cls: 'tile-d' },
-  { v: V.pet, cls: 'tile-e' },
-  { v: V.groom, cls: 'tile-f' },
+// Hero video columns: all 6 videos, split across 3 auto-scrolling columns.
+const heroCols = [
+  { dur: 36, reverse: false, items: [{ v: V.oral, p: P.oral }, { v: V.skin }] },
+  { dur: 46, reverse: true, items: [{ v: V.kitchen, p: P.kitchen }, { v: V.greens }] },
+  { dur: 40, reverse: false, items: [{ v: V.pet, p: P.pet }, { v: V.groom }] },
 ]
 
 const chips = ['Built For Meta', 'Creator Style', 'AI Powered', 'Fast Turnaround', 'Unlimited Creative Ideas']
@@ -41,12 +38,12 @@ const work = [
 ]
 
 const bento = [
-  ['🎯', 'Win the feed', 'Ad creative engineered to stop the scroll and earn the click on Meta.', 'b-wide'],
-  ['🪝', 'More angles', 'Multiple hooks per concept so you find what actually converts.', ''],
-  ['⚡', 'Made fast', 'AI powered production means more ideas in front of your audience, sooner.', ''],
-  ['🎬', 'Feels real', 'Creator style content that does not look or feel like an ad.', ''],
-  ['✍️', 'Ready to run', 'Script, voiceover, captions, and editing, delivered launch ready.', ''],
-  ['🔁', 'Scale the winners', 'We take what performs and push more angles to scale it further.', 'b-wide'],
+  ['Target', 'Win the feed', 'Ad creative engineered to stop the scroll and earn the click on Meta.'],
+  ['Hook', 'More angles', 'Multiple hooks per concept so you find what actually converts.'],
+  ['Bolt', 'Made fast', 'AI powered production means more ideas in front of your audience, sooner.'],
+  ['Film', 'Feels real', 'Creator style content that does not look or feel like an ad.'],
+  ['Pen', 'Ready to run', 'Script, voiceover, captions, and editing, delivered launch ready.'],
+  ['Chart', 'Scale the winners', 'We take what performs and push more angles to scale it further.'],
 ]
 
 const faqs = [
@@ -77,17 +74,17 @@ const adOptions = ['Running Meta Ads', 'Running TikTok Ads', 'Running Google Ads
 const goalOptions = ['Increase Sales', 'Lower CPA', 'Launch Product', 'Generate UGC', 'Refresh Existing Ads', 'Need New Creatives', 'Testing New Hooks', 'Other']
 
 const metaCards = [
-  ['🎬', 'Creative Production', 'We create AI UGC, product demonstrations, hook variations, and performance creatives designed specifically for paid social.', ['AI UGC', 'Product Demonstrations', 'Hook Variations', 'Voiceovers', 'Scripts', 'Editing']],
-  ['🧩', 'Meta Campaign Setup', 'Once the creative is ready, we help structure campaigns so your testing stays organized and scalable.', ['Campaign Structure', 'Ad Set Creation', 'Audience Setup', 'Pixel Verification (where applicable)', 'Campaign Organization', 'Creative Upload']],
-  ['🧪', 'Creative Testing', 'Great advertising comes from testing. We help brands compare creatives, identify winning concepts, and improve future content.', ['Creative Testing', 'Hook Testing', 'A/B Testing Strategy', 'Performance Reviews', 'Creative Recommendations', 'Monthly Refresh Plans']],
+  ['Film', 'Creative Production', 'We create AI UGC, product demonstrations, hook variations, and performance creatives designed specifically for paid social.', ['AI UGC', 'Product Demonstrations', 'Hook Variations', 'Voiceovers', 'Scripts', 'Editing']],
+  ['Grid', 'Meta Campaign Setup', 'Once the creative is ready, we help structure campaigns so your testing stays organized and scalable.', ['Campaign Structure', 'Ad Set Creation', 'Audience Setup', 'Pixel Verification (where applicable)', 'Campaign Organization', 'Creative Upload']],
+  ['Flask', 'Creative Testing', 'Great advertising comes from testing. We help brands compare creatives, identify winning concepts, and improve future content.', ['Creative Testing', 'Hook Testing', 'A/B Testing Strategy', 'Performance Reviews', 'Creative Recommendations', 'Monthly Refresh Plans']],
 ]
 const flowSteps = ['Research', 'Creative Strategy', 'Script', 'Production', 'Meta Campaign Setup', 'Launch', 'Creative Testing', 'Optimization', 'Scale']
 const tradList = ['Creates one video', 'Delivers files', 'Ends after delivery', 'One creative angle', 'Limited testing']
 const reeloList = ['Creates multiple ad concepts', 'Produces performance focused creative', 'Helps organize campaign launches', 'Builds multiple hooks', 'Supports creative testing', 'Plans future iterations']
 const receiveItems = [
-  ['🎬', 'Ready to launch videos'], ['🧠', 'Creative strategy'], ['✍️', 'Scripts'],
-  ['🎙️', 'Voiceovers'], ['🪝', 'Hook variations'], ['🧩', 'Meta campaign setup'],
-  ['🧪', 'Creative testing plan'], ['📁', 'Organized delivery files'], ['📈', 'Future optimization ideas'],
+  ['Play', 'Ready to launch videos'], ['Sparkle', 'Creative strategy'], ['Pen', 'Scripts'],
+  ['Mic', 'Voiceovers'], ['Hook', 'Hook variations'], ['Grid', 'Meta campaign setup'],
+  ['Flask', 'Creative testing plan'], ['Folder', 'Organized delivery files'], ['Chart', 'Future optimization ideas'],
 ]
 
 function Nav() {
@@ -102,43 +99,49 @@ function Nav() {
   const links = [['Work', '#work'], ['What you get', '#services'], ['Advertising', '#scale'], ['Approach', '#approach'], ['Pricing', '#pricing'], ['FAQ', '#faq']]
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container nav-inner">
+      <div className="nav-pill">
         <a href="#top" className="logo"><img className="logo-mark" src={LOGO_ICON} alt="" /><span>Reelo</span></a>
         <nav className={`nav-links ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
           {links.map(([l, h]) => <a key={h} href={h}>{l}</a>)}
-          <a href="#contact" className="btn btn-sm btn-primary">Get Video Ideas</a>
+          <a href="#contact" className="btn btn-sm btn-primary nav-cta-mobile">Get Video Ideas</a>
         </nav>
+        <a href="#contact" className="btn btn-sm btn-primary nav-cta">Get Video Ideas</a>
         <button className="nav-toggle" aria-label="Menu" onClick={() => setOpen((o) => !o)}><span /><span /><span /></button>
       </div>
     </header>
   )
 }
 
-function CreativeWall() {
-  const mx = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 })
-  const my = useSpring(useMotionValue(0), { stiffness: 50, damping: 20 })
-  const onMove = (e) => {
-    const r = e.currentTarget.getBoundingClientRect()
-    mx.set(((e.clientX - r.left) / r.width - 0.5) * 30)
-    my.set(((e.clientY - r.top) / r.height - 0.5) * 26)
-  }
-  const reset = () => { mx.set(0); my.set(0) }
+function HeroColumns() {
   return (
-    <div className="wall-wrap" onMouseMove={onMove} onMouseLeave={reset}>
-      <div className="wall-ambient" />
-      <motion.div className="wall" style={{ x: mx, y: my }}>
-        {wall.map((t, i) => (
-          <div key={i} className={`tile-pos ${t.cls}`}>
-            <div className="tile" style={{ animationDelay: `${i * -1.6}s`, animationDuration: `${7 + (i % 3)}s` }}>
-              <video autoPlay muted loop playsInline poster={t.poster}>
-                <source src={t.v} type="video/mp4" />
-              </video>
-              <span className="tile-sheen" />
-            </div>
+    <div className="hcols" aria-hidden="true">
+      {heroCols.map((col, i) => (
+        <div className="hcol" key={i}>
+          <div className={`hcol-track ${col.reverse ? 'rev' : ''}`} style={{ animationDuration: `${col.dur}s` }}>
+            {[...col.items, ...col.items].map((it, j) => (
+              <div className="hvid" key={j}>
+                <video autoPlay muted loop playsInline poster={it.p}>
+                  <source src={it.v} type="video/mp4" />
+                </video>
+              </div>
+            ))}
           </div>
-        ))}
-      </motion.div>
+        </div>
+      ))}
     </div>
+  )
+}
+
+function SectionHead({ num, label, children, sub, center = false, accent }) {
+  return (
+    <Reveal className={`shead ${center ? 'shead-center' : ''}`}>
+      <div className="shead-top">
+        {num && <span className="shead-num">{num}</span>}
+        <span className="shead-label" style={accent ? { color: accent } : undefined}>{label}</span>
+      </div>
+      <h2>{children}</h2>
+      {sub && <p className="section-sub">{sub}</p>}
+    </Reveal>
   )
 }
 
@@ -146,7 +149,7 @@ function WorkCard({ item }) {
   const vref = useRef(null)
   const [expanded, setExpanded] = useState(false)
   return (
-    <TiltCard className="case glass" max={5}>
+    <TiltCard className="case panel" max={5}>
       <div
         className="case-media"
         onMouseEnter={() => { setExpanded(true); vref.current && vref.current.play().catch(() => {}) }}
@@ -167,14 +170,14 @@ function WorkCard({ item }) {
 
 function AboutImage() {
   const [ok, setOk] = useState(true)
-  if (!ok) return <div className="about-ph"><div className="about-ph-ico">📸</div><div>Add your photo</div><small>web/public/about-me.jpg</small></div>
+  if (!ok) return <div className="about-ph"><div className="about-ph-ico"><Icon name="Film" /></div><div>Add your photo</div><small>web/public/about-me.jpg</small></div>
   return <img className="about-img" src={ABOUT_IMG} alt="Cayden, founder of Reelo" onError={() => setOk(false)} />
 }
 
 function Faq({ q, a }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className={`faq-item glass ${open ? 'open' : ''}`}>
+    <div className={`faq-item ${open ? 'open' : ''}`}>
       <div className="faq-q" onClick={() => setOpen((o) => !o)}><span>{q}</span><span className="plus">+</span></div>
       <div className="faq-a" style={{ maxHeight: open ? 260 : 0 }}><p>{a}</p></div>
     </div>
@@ -185,19 +188,18 @@ function CreativeLibrary({ onRequest }) {
   return (
     <section className="section" id="library">
       <div className="container">
-        <Reveal className="section-head">
-          <div className="eyebrow" style={{ color: 'var(--a3)' }}>Creative library</div>
-          <h2>The frameworks behind <GradientText>scroll stopping ads</GradientText></h2>
-          <p className="section-sub">These are the proven angles we build from. Find one that fits your product and request it in a click.</p>
-        </Reveal>
+        <SectionHead num="02" label="Creative library" accent="var(--a3)"
+          sub="These are the proven angles we build from. Find one that fits your product and request it in a click.">
+          The frameworks behind scroll stopping ads
+        </SectionHead>
         <div className="lib-grid">
           {creativeConcepts.map(([name, desc], i) => (
             <Reveal key={name} delay={(i % 4) * 0.05}>
               <SpotlightCard className="lib-card">
-                <div className="lib-top"><span className="lib-tag">Concept</span></div>
+                <div className="lib-top"><span className="lib-ico"><Icon name="Sparkle" size={18} /></span><span className="lib-tag">Concept</span></div>
                 <h3>{name}</h3>
                 <p>{desc}</p>
-                <button className="lib-btn" onClick={() => onRequest(name)}>Request this creative <span aria-hidden="true">→</span></button>
+                <button className="lib-btn" onClick={() => onRequest(name)}>Request this creative <ArrowRight size={16} /></button>
               </SpotlightCard>
             </Reveal>
           ))}
@@ -211,22 +213,21 @@ function ScaleSection() {
   return (
     <section className="section scale" id="scale">
       <div className="container">
-        <Reveal className="section-head">
-          <div className="eyebrow" style={{ color: 'var(--a1)' }}>Beyond the video</div>
-          <h2>Scale Your Ads, <GradientText>Not Just Your Content</GradientText></h2>
-          <p className="section-sub">Creating great ads is only the first step. We help brands launch, test, and optimize Meta campaigns so great creative actually turns into results.</p>
-        </Reveal>
-
-        <Reveal className="scale-intro">
-          <p>Most brands pour everything into one hero ad and hope it works. The brands that actually scale do the opposite: they test constantly. Reelo produces the volume of creative that testing needs, and helps you organize and launch Meta campaigns built for it, so your best ideas get found faster and your winners get pushed further.</p>
-        </Reveal>
+        <div className="scale-top">
+          <SectionHead num="04" label="Beyond the video" accent="var(--a1)">
+            Scale your ads, not just your content
+          </SectionHead>
+          <Reveal className="scale-intro" delay={0.1}>
+            <p>Most brands pour everything into one hero ad and hope it works. The brands that actually scale do the opposite: they test constantly. Reelo produces the volume of creative that testing needs, and helps you organize and launch Meta campaigns built for it, so your best ideas get found faster and your winners get pushed further.</p>
+          </Reveal>
+        </div>
 
         {/* Three cards */}
         <div className="mcards">
           {metaCards.map(([ico, t, d, list], i) => (
             <Reveal key={t} delay={i * 0.1}>
               <SpotlightCard className="mcard">
-                <div className="mc-ico">{ico}</div>
+                <div className="card-ico"><Icon name={ico} /></div>
                 <h3>{t}</h3>
                 <p>{d}</p>
                 <ul className="mc-list">{list.map((l) => <li key={l}>{l}</li>)}</ul>
@@ -236,7 +237,7 @@ function ScaleSection() {
         </div>
 
         {/* Workflow */}
-        <Reveal className="scale-sub"><h3>From idea to scale, one system</h3></Reveal>
+        <Reveal className="scale-sub"><span className="scale-sub-label">System</span><h3>From idea to scale, one system</h3></Reveal>
         <div className="flowh">
           {flowSteps.map((s, i) => (
             <Reveal key={s} className="fstep" delay={i * 0.05}>
@@ -247,16 +248,16 @@ function ScaleSection() {
         </div>
 
         {/* Comparison */}
-        <Reveal className="scale-sub"><h3>Why Brands Choose Reelo</h3></Reveal>
+        <Reveal className="scale-sub"><span className="scale-sub-label">The difference</span><h3>Why brands choose Reelo</h3></Reveal>
         <div className="cmp">
           <Reveal className="cmp-cell">
-            <div className="cmp-card glass cmp-trad">
+            <div className="cmp-card panel cmp-trad">
               <span className="cmp-tag">Traditional creator</span>
               <ul>{tradList.map((l) => <li key={l} className="cmp-neutral">{l}</li>)}</ul>
             </div>
           </Reveal>
           <Reveal className="cmp-cell" delay={0.1}>
-            <div className="cmp-card glass cmp-reelo">
+            <div className="cmp-card panel cmp-reelo">
               <span className="cmp-tag on">Reelo</span>
               <ul>{reeloList.map((l) => <li key={l} className="cmp-yes">{l}</li>)}</ul>
             </div>
@@ -264,20 +265,22 @@ function ScaleSection() {
         </div>
 
         {/* What you receive */}
-        <Reveal className="scale-sub"><h3>What you receive</h3></Reveal>
+        <Reveal className="scale-sub"><span className="scale-sub-label">Deliverables</span><h3>What you receive</h3></Reveal>
         <div className="receive">
           {receiveItems.map(([ico, t], i) => (
             <Reveal key={t} delay={(i % 3) * 0.06}>
-              <div className="rcard glass"><span className="ri">{ico}</span><span>{t}</span></div>
+              <div className="rcard panel"><span className="rcard-ico"><Icon name={ico} size={20} /></span><span>{t}</span></div>
             </Reveal>
           ))}
         </div>
 
         {/* CTA */}
         <Reveal>
-          <div className="scale-cta glass">
-            <h3>Ready To Scale Your Creative?</h3>
-            <p>Whether you need new ad creatives, campaign setup, or a better creative testing workflow, we will help build a system designed for long term growth.</p>
+          <div className="scale-cta panel">
+            <div className="scale-cta-copy">
+              <h3>Ready to scale your creative?</h3>
+              <p>Whether you need new ad creatives, campaign setup, or a better creative testing workflow, we will help build a system designed for long term growth.</p>
+            </div>
             <div className="scale-cta-actions">
               <Magnet strength={0.28}><a href="#contact" className="btn btn-primary btn-lg">Start Your Project</a></Magnet>
               <a href="#library" className="btn btn-ghost btn-lg">Browse Creative Library</a>
@@ -378,40 +381,36 @@ export default function App() {
       <div className="orb orb-1" aria-hidden="true" />
       <div className="orb orb-2" aria-hidden="true" />
       <div className="grain" aria-hidden="true" />
+      <ScrollProgress />
       <div className="app" id="top">
         <Nav />
 
         {/* HERO */}
-        <section className="hero">
+        <section className="hero" id="hero">
           <div className="container hero-inner">
             <Reveal className="hero-copy">
-              <div className="eyebrow"><span className="pulse" /> Performance Creative For Ecommerce Brands</div>
-              <h1>More Winning Ads.<br /><GradientText>Less Guesswork.</GradientText></h1>
+              <div className="eyebrow"><span className="pulse" /> <ShinyText>Performance Creative For Ecommerce Brands</ShinyText></div>
+              <h1><BlurText text="More Winning Ads." /><br /><BlurText text="Less Guesswork." grad startDelay={0.34} /></h1>
               <p className="lead">We build AI powered UGC, Meta creatives, and product ads designed to help brands test more ideas, beat creative fatigue, and scale what works.</p>
               <div className="hero-actions">
                 <Magnet strength={0.3}><a href="#contact" className="btn btn-primary btn-lg">Get Video Ideas</a></Magnet>
                 <a href="#work" className="btn btn-ghost btn-lg">Watch Our Work</a>
               </div>
+              <div className="hero-chips">
+                {chips.map((c) => <span key={c} className="chip glass">{c}</span>)}
+              </div>
             </Reveal>
-            <Reveal delay={0.15}><CreativeWall /></Reveal>
+            <Reveal delay={0.15} className="hero-visual"><HeroColumns /></Reveal>
           </div>
-        </section>
-
-        {/* CHIPS */}
-        <section className="chips-row container">
-          {chips.map((c, i) => (
-            <Reveal key={c} delay={i * 0.06} className="chip glass">{c}</Reveal>
-          ))}
         </section>
 
         {/* WORK */}
         <section className="section" id="work">
           <div className="container">
-            <Reveal className="section-head">
-              <div className="eyebrow" style={{ color: 'var(--a1)' }}>Selected work</div>
-              <h2>Creative built to <GradientText>win the scroll</GradientText></h2>
-              <p className="section-sub">How we think about ads. Every piece here is a spec concept, built independently to show the approach. We never imply a brand hired us.</p>
-            </Reveal>
+            <SectionHead num="01" label="Selected work" accent="var(--a1)"
+              sub="How we think about ads. Every piece here is a spec concept, built independently to show the approach. We never imply a brand hired us.">
+              Creative built to <GradientText>win the scroll</GradientText>
+            </SectionHead>
             <div className="cases">
               {work.map((item, i) => <Reveal key={item.cat} delay={i * 0.1}><WorkCard item={item} /></Reveal>)}
             </div>
@@ -421,23 +420,26 @@ export default function App() {
         {/* CREATIVE LIBRARY */}
         <CreativeLibrary onRequest={requestCreative} />
 
-        {/* SERVICES BENTO */}
+        {/* SERVICES BENTO — two column, sticky head */}
         <section className="section" id="services">
           <div className="container">
-            <Reveal className="section-head">
-              <div className="eyebrow" style={{ color: 'var(--a2)' }}>What you receive</div>
-              <h2>Everything behind <GradientText>ads that perform</GradientText></h2>
-              <p className="section-sub">Not a list of tasks. The things that actually move your results.</p>
-            </Reveal>
-            <div className="bento">
-              {bento.map(([ico, t, c, cls], i) => (
-                <Reveal key={t} delay={(i % 3) * 0.06} className={`bento-cell ${cls}`}>
-                  <SpotlightCard className="bento-card">
-                    <div className="svc-ico">{ico}</div>
-                    <div className="bento-body"><h3>{t}</h3><p>{c}</p></div>
-                  </SpotlightCard>
-                </Reveal>
-              ))}
+            <div className="svc-layout">
+              <div className="svc-head">
+                <SectionHead num="03" label="What you receive" accent="var(--a2)"
+                  sub="Not a list of tasks. The things that actually move your results.">
+                  Everything behind ads that perform
+                </SectionHead>
+              </div>
+              <div className="bento">
+                {bento.map(([ico, t, c], i) => (
+                  <Reveal key={t} delay={(i % 2) * 0.06} className="bento-cell">
+                    <SpotlightCard className="bento-card">
+                      <div className="card-ico"><Icon name={ico} /></div>
+                      <div className="bento-body"><h3>{t}</h3><p>{c}</p></div>
+                    </SpotlightCard>
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -448,21 +450,20 @@ export default function App() {
         {/* APPROACH / PHILOSOPHY */}
         <section className="section approach" id="approach">
           <div className="container">
-            <Reveal className="statement">
-              <div className="eyebrow" style={{ color: 'var(--a3)' }}>Creative philosophy</div>
-              <h2>Brands don't need one perfect ad.<br />They need <GradientText>hundreds of creative ideas.</GradientText></h2>
-            </Reveal>
+            <SectionHead num="05" label="Creative philosophy" accent="var(--a3)">
+              Brands don't need one perfect ad. They need <GradientText>hundreds of creative ideas.</GradientText>
+            </SectionHead>
             <div className="phil-grid">
               {[
                 ['Volume beats perfection', 'The winner is rarely the ad you expected. You find it by testing more, not by polishing one.'],
                 ['Speed compounds', 'The faster you get new angles live, the faster you learn what your audience responds to.'],
                 ['Hooks decide everything', 'Most ads are won or lost in the first three seconds. We build every concept hook first.'],
               ].map(([t, d], i) => (
-                <Reveal key={t} delay={i * 0.08}><SpotlightCard className="phil-card"><h3>{t}</h3><p>{d}</p></SpotlightCard></Reveal>
+                <Reveal key={t} delay={i * 0.08}><SpotlightCard className="phil-card"><span className="phil-num">{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><p>{d}</p></SpotlightCard></Reveal>
               ))}
             </div>
             <div className="about-grid">
-              <Reveal><TiltCard className="about-frame glass" max={6}><AboutImage /></TiltCard></Reveal>
+              <Reveal><TiltCard className="about-frame panel" max={6}><AboutImage /></TiltCard></Reveal>
               <Reveal delay={0.12}>
                 <div className="about-copy">
                   <p>I started Reelo because I kept watching great products lose to average ones for a single reason: the average ones simply tested more creative. AI lets us produce more, faster, but the strategy, the hooks, and the story are where the real work goes.</p>
@@ -476,11 +477,10 @@ export default function App() {
         {/* PRICING */}
         <section className="section" id="pricing">
           <div className="container">
-            <Reveal className="section-head">
-              <div className="eyebrow" style={{ color: 'var(--a2)' }}>Pricing</div>
-              <h2>Simple packages, <GradientText>built for testing</GradientText></h2>
-              <p className="section-sub">Introductory, per project pricing. More videos means more angles to run against each other.</p>
-            </Reveal>
+            <SectionHead num="06" label="Pricing" center accent="var(--a2)"
+              sub="Introductory, per project pricing. More videos means more angles to run against each other.">
+              Simple packages, built for testing
+            </SectionHead>
             <div className="pricing-grid">
               {[
                 ['Starter', '$100', '1 video', ['One finished ad creative', 'Script and concept', 'Voiceover and captions', 'One round of revisions'], false, 'Start here', 'btn-ghost'],
@@ -488,9 +488,9 @@ export default function App() {
                 ['Scale', '$400', '5 videos', ['Five creatives to test', 'Best for active ad accounts', 'Everything in Growth', 'Priority delivery'], false, 'Scale up', 'btn-ghost'],
               ].map(([name, amt, unit, feats, feat, cta, btn]) => (
                 <Reveal key={name} delay={feat ? 0.05 : 0.12}>
-                  <div className={`price glass ${feat ? 'featured' : ''}`}>
+                  <div className={`price panel ${feat ? 'featured' : ''}`}>
                     {feat && <div className="tag">Most popular</div>}
-                    <h3>{name}</h3><div className="amt">{amt}</div><div className="unit">{unit}</div>
+                    <h3>{name}</h3><div className="amt"><CountUp value={parseInt(amt.replace(/\D/g, ''), 10)} prefix="$" duration={1.1} /></div><div className="unit">{unit}</div>
                     <ul>{feats.map((f) => <li key={f}>{f}</li>)}</ul>
                     <a href="#contact" className={`btn ${btn} btn-block`}>{cta}</a>
                   </div>
@@ -499,17 +499,23 @@ export default function App() {
             </div>
             <Reveal className="addons">
               <span>Add ons</span>
-              <div className="addon glass">Hook variations <strong>+$25</strong></div>
-              <div className="addon glass">Extra revisions <strong>+$25</strong></div>
+              <div className="addon panel">Hook variations <strong>+$25</strong></div>
+              <div className="addon panel">Extra revisions <strong>+$25</strong></div>
             </Reveal>
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* FAQ — two column, sticky head */}
         <section className="section" id="faq">
-          <div className="container narrow">
-            <Reveal className="section-head"><div className="eyebrow" style={{ color: 'var(--a3)' }}>FAQ</div><h2>The questions brands ask</h2></Reveal>
-            <div className="faq">{faqs.map(([q, a], i) => <Reveal key={q} delay={i * 0.04}><Faq q={q} a={a} /></Reveal>)}</div>
+          <div className="container">
+            <div className="faq-layout">
+              <div className="faq-head">
+                <SectionHead num="07" label="FAQ" accent="var(--a3)">
+                  The questions brands ask
+                </SectionHead>
+              </div>
+              <div className="faq">{faqs.map(([q, a], i) => <Reveal key={q} delay={i * 0.04}><Faq q={q} a={a} /></Reveal>)}</div>
+            </div>
           </div>
         </section>
 
@@ -518,8 +524,8 @@ export default function App() {
           <div className="container">
             <div className="contact-split">
               <Reveal className="contact-left">
-                <div className="eyebrow" style={{ color: 'var(--a1)' }}>Start a project</div>
-                <h2>Let's build your next <GradientText>winning ad</GradientText></h2>
+                <div className="shead-top"><span className="shead-label" style={{ color: 'var(--a1)' }}>Start a project</span></div>
+                <h2>Let's build your next winning ad</h2>
                 <p className="section-sub">Tell us about your product and we will recommend the best creative concepts for your brand. It is the start of a creative strategy, not a generic inquiry.</p>
                 <div className="contact-meta">
                   <div><span>Email</span><a className="email-link" href="mailto:cayden.w.sims@gmail.com?subject=Reelo%20inquiry">cayden.w.sims@gmail.com</a></div>
@@ -535,8 +541,26 @@ export default function App() {
 
         <footer className="footer">
           <div className="container footer-inner">
-            <div className="logo"><img className="logo-mark" src={LOGO_ICON} alt="" /><span>Reelo</span></div>
-            <p>Performance creative for ecommerce brands.</p>
+            <div className="footer-brand">
+              <div className="logo"><img className="logo-mark" src={LOGO_ICON} alt="" /><span>Reelo</span></div>
+              <p>Performance creative for ecommerce brands. AI UGC and Meta ad creatives built to test more and scale what works.</p>
+            </div>
+            <div className="footer-col">
+              <span className="footer-h">Sections</span>
+              <a href="#work">Work</a>
+              <a href="#services">What you get</a>
+              <a href="#scale">Advertising</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#faq">FAQ</a>
+            </div>
+            <div className="footer-col">
+              <span className="footer-h">Contact</span>
+              <a className="email-link" href="mailto:cayden.w.sims@gmail.com?subject=Reelo%20inquiry">cayden.w.sims@gmail.com</a>
+              <a href="#contact">Start a project</a>
+            </div>
+          </div>
+          <div className="container footer-fine">
+            <span>© {new Date().getFullYear()} Reelo</span>
             <p className="fine">All work marked "Spec Concept" is created independently and does not imply a client relationship.</p>
           </div>
         </footer>

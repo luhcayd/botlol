@@ -1,5 +1,34 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView, useMotionValue, useSpring, animate } from 'framer-motion'
+import { motion, useInView, useMotionValue, useSpring, useScroll, useReducedMotion, animate } from 'framer-motion'
+
+/* ScrollProgress — a thin gradient line fixed at the top, scaled to scroll depth */
+export function ScrollProgress() {
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 })
+  return <motion.div className="scroll-progress" style={{ scaleX }} aria-hidden="true" />
+}
+
+/* BlurText — words fade + rise + deblur in sequence, once on mount (React Bits BlurText/SplitText) */
+export function BlurText({ text, className = '', grad = false, startDelay = 0, stagger = 0.075 }) {
+  const reduce = useReducedMotion()
+  const words = text.split(' ')
+  return (
+    <span className={className}>
+      {words.map((w, i) => (
+        <motion.span
+          key={i}
+          className={grad ? 'grad-text' : ''}
+          style={{ display: 'inline-block', willChange: 'transform, filter' }}
+          initial={reduce ? false : { opacity: 0, y: '0.42em', filter: 'blur(10px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1], delay: startDelay + i * stagger }}
+        >
+          {w}{i < words.length - 1 ? ' ' : ''}
+        </motion.span>
+      ))}
+    </span>
+  )
+}
 
 /* Reveal — fades/slides content in on scroll (React Bits AnimatedContent) */
 export function Reveal({ children, delay = 0, y = 26, className, as = 'div' }) {
@@ -59,8 +88,8 @@ export function TiltCard({ children, className = '', max = 10 }) {
   )
 }
 
-/* SpotlightCard — glass card with a cursor-following glow (React Bits SpotlightCard) */
-export function SpotlightCard({ children, className = '' }) {
+/* SpotlightCard — flat surface card with a cursor-following glow (React Bits SpotlightCard) */
+export function SpotlightCard({ children, className = '', surface = 'panel' }) {
   const ref = useRef(null)
   const [pos, setPos] = useState({ x: -200, y: -200, on: false })
   const onMove = (e) => {
@@ -70,7 +99,7 @@ export function SpotlightCard({ children, className = '' }) {
   return (
     <div
       ref={ref}
-      className={`glass ${className}`}
+      className={`${surface} ${className}`}
       onMouseMove={onMove}
       onMouseLeave={() => setPos((p) => ({ ...p, on: false }))}
       style={{ position: 'relative', overflow: 'hidden' }}
@@ -114,16 +143,18 @@ export function Magnet({ children, strength = 0.4, className = '' }) {
 /* CountUp — number rolls up when scrolled into view (React Bits CountUp) */
 export function CountUp({ value, prefix = '', suffix = '', duration = 1.6, decimals = 0 }) {
   const ref = useRef(null)
+  const reduce = useReducedMotion()
   const inView = useInView(ref, { once: true, margin: '0px 0px -40px 0px' })
   const [display, setDisplay] = useState(prefix + '0' + suffix)
   useEffect(() => {
     if (!inView) return
+    if (reduce) { setDisplay(prefix + value.toFixed(decimals) + suffix); return }
     const controls = animate(0, value, {
       duration,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (v) => setDisplay(prefix + v.toFixed(decimals) + suffix),
     })
     return () => controls.stop()
-  }, [inView, value, prefix, suffix, duration, decimals])
+  }, [inView, reduce, value, prefix, suffix, duration, decimals])
   return <span ref={ref}>{display}</span>
 }
