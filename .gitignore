@@ -3,3 +3,6 @@
 *.log
 bot.log
 __pycache__/
+
+sent-log.txt
+agency/outreach/sent-log.txt
