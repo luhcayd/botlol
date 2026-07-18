@@ -1,0 +1,437 @@
+# Reelo Outreach — Batch C (copy-paste ready)
+
+17 email prospects + 6 form-only. Each block: recipient, subject, body. Voice, opener, and subject rotation continued from Batch B. No em dashes or hyphens in copy. Send from cayden.w.sims@gmail.com.
+
+---
+
+## 1. Wondercide
+**To:** hello@wondercide.com
+**Subject:** Short video concepts for Wondercide
+
+Hello,
+
+I recently found Wondercide while researching natural pet care brands, and I think your products would work really well in creator style videos. Your plant based Flea & Tick Spray for pets and home is a real alternative to synthetic drops and pills. I could see a quick spritz the dog and the couch before a hike with no vet pill needed demo, a safe to spray around the kids peace of mind angle, and a satisfying cedar and lemongrass routine that owners can trust.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 2. Plufl
+**To:** hello@weareplufl.com
+**Subject:** Short form video ideas for Plufl
+
+Hello,
+
+I recently discovered Plufl while looking through lifestyle brands, and I immediately thought of a few creator style concepts. Your Original Human Dog Bed is basically made for content. I could see the comedic grown adult curls up in a dog bed reveal, a cozy work from home midday reset reel, and a doomscroll free nap moment where the visual is the whole hook.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 3. BuddyRest
+**To:** service@buddyrest.com
+**Subject:** Short form video concepts for BuddyRest
+
+Hello,
+
+I came across BuddyRest while looking through pet products, and I immediately thought of a few video ideas that could help show your orthopedic dog beds in action. The memory foam bolster beds are built for senior and large breed dogs with joint pain. I could see an emotional my twelve year old lab finally sleeps through the night before and after, a chew proof durability torture test, and a look at how an achy old dog finally settles in.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 4. Tuft & Paw
+**To:** hello@tuftandpaw.com
+**Subject:** UGC video concepts for Tuft & Paw
+
+Hello,
+
+I was looking through Tuft & Paw and thought your products would work really well in short form videos because your cat furniture actually looks good in a styled home. Your modern cat trees, covered litter setups, and sculptural scratchers are a clear upgrade from ugly carpeted towers. I could see a cat furniture that fits your living room reveal, a behaviorist backed why your cat ignores its scratcher explainer, and a calm styling reel that fits a real space.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 5. Catalyst Pet
+**To:** careteam@catalystpet.com
+**Subject:** Short video concepts for Catalyst Pet
+
+Hello,
+
+I recently found Catalyst Pet while researching pet brands, and I think your products would work really well in creator style videos. Your upcycled soft wood litter is lightweight, where one pound does the work of about four pounds of clay. I could see a satisfying lift the whole bag with one finger moment, a low dust pour that keeps the air clear, and a clean clump scoop with a bit of ASMR.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 6. Skout's Honor
+**To:** sales@skoutshonor.com
+**Subject:** Short form video ideas for Skout's Honor
+
+Hello,
+
+I recently discovered Skout's Honor while looking through pet grooming brands, and I immediately thought of a few creator style concepts. Your probiotic shampoo and hyaluronic acid grooming wipes are perfect for the stinky, itchy dog between full baths. I could see a quick wipe down and sniff test refresh, a sudsy bath to fluffy blowout transformation, and a before and after on a smelly coat that makes the payoff obvious.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 7. Doggie Dailies
+**To:** help@doggiedailies.com
+**Subject:** Short form video concepts for Doggie Dailies
+
+Hello,
+
+I came across Doggie Dailies while looking through pet supplement products, and I immediately thought of a few video ideas that could help show your hip and joint chews in action. Your glucosamine soft chews and probiotic omega chews target stiffness and digestion. I could see a sprinkle it on dinner feeding time moment, a watch the zoomies come back in two weeks before and after, and a relatable older dog slowing down on walks story.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 8. Davids Natural Toothpaste
+**To:** media@davids-usa.com
+**Subject:** UGC video concepts for Davids Natural Toothpaste
+
+Hello,
+
+I was looking through Davids and thought your products would work really well in short form videos because the packaging is so satisfying to show. Your clean ingredient toothpaste comes in a recyclable metal tube with the key roller included. I could see a satisfying roll the tube flat with the key squeeze, a metal tube ASMR morning routine swap, and a simple no plastic tube story that lets the design carry the video.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 9. ELIMS
+**To:** hello@elims.co
+**Subject:** Short video concepts for ELIMS
+
+Hello,
+
+I recently found ELIMS while researching oral care brands, and I think your products would work really well in creator style videos. Your Reflection Toothpaste uses ten percent nano hydroxyapatite as a fluoride alternative that remineralizes enamel and cuts sensitivity. I could see a swap your paste and here is why morning routine, a two week sensitive teeth story, and a clean bathroom shelf reel built around the details.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 10. NOBS
+**To:** hello@mail-nobsroutines.com
+**Subject:** Short form video ideas for NOBS
+
+Hello,
+
+I recently discovered NOBS while looking through oral care brands, and I immediately thought of a few creator style concepts. Your nano hydroxyapatite toothpaste tablets are fluoride and plastic free in a glass jar. I could see the novel bite, brush, and foam demo, a TSA proof toothpaste travel angle, and a no more messy tubes swap that clears clutter off the counter.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 11. Keeko
+**To:** hello@keekooil.com
+**Subject:** Short form video concepts for Keeko
+
+Hello,
+
+I came across Keeko while looking through oral care products, and I immediately thought of a few video ideas that could help show your oral beauty ritual. Your copper tongue cleaner, coconut oil floss, and oil pulling sachets feel more like a beauty routine than a chore. I could see an aesthetic close up scrape, swish, and floss ritual, a premium packaging unboxing, and a fresh breath morning reset.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 12. Duo Toothpaste
+**To:** returns@duotoothpaste.com
+**Subject:** UGC video concepts for Duo Toothpaste
+
+Hello,
+
+I was looking through Duo and thought your products would work really well in short form videos because the format is so fun to show. Your nano hydroxyapatite tablets come in functional flavors like Energy, Sleep, and Immunity. I could see a drop a tablet, chew, and brush reveal, a which flavor for which time of day bit, and a plastic free bathroom swap that clears out the old tubes.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 13. Needed
+**To:** hello@thisisneeded.com
+**Subject:** Short video concepts for Needed
+
+Hello,
+
+I recently found Needed while researching women's health brands, and I think your products would work really well in creator style videos. Your Prenatal Multi capsules and powder, plus your postpartum recovery support, speak to the nutrient gaps women hit through pregnancy. I could see a my daily prenatal stack powder scoop routine, a what no one tells you about postpartum recovery testimonial, and a calm morning wellness moment.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 14. Kindra
+**To:** partnerships@ourkindra.com
+**Subject:** Short form video ideas for Kindra
+
+Hello,
+
+I recently discovered Kindra while looking through menopause support brands, and I immediately thought of a few creator style concepts. Your core capsules and Sleep supplement target hot flashes, brain fog, and night time wake ups without hormones. I could see a candid hot flashes to sleeping through the night testimonial, a real talk perimenopause routine, and a calming bedtime wind down that speaks straight to your audience.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 15. Sandland Sleep
+**To:** hello@sandlandsleep.com
+**Subject:** Short form video concepts for Sandland Sleep
+
+Hello,
+
+I came across Sandland Sleep while looking through sleep products, and I immediately thought of a few video ideas that could help show your dissolving sleep tablets in action. Your tablets are built on magnesium, valerian root, and L theanine, with melatonin free options. I could see a dissolve under the tongue bedtime wind down ritual, a racing mind to calm story, and a no more groggy melatonin hangover angle.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 16. SEASON34
+**To:** support@season34.com
+**Subject:** UGC video concepts for SEASON34
+
+Hello,
+
+I was looking through SEASON34 and thought your products would work really well in short form videos because the stackable system is so easy to explain. Your nine symptom targeted formulas cover Sleep, Mood and Memory, Hot Flash, and more. I could see a build your stack for exactly your symptoms explainer, a which formula matches how you feel walkthrough, and a real talk menopause routine that helps people find their fit.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+## 17. Wile
+**To:** info@wilewomen.com
+**Subject:** Short video concepts for Wile
+
+Hello,
+
+I recently found Wile while researching women's supplement brands, and I think your products would work really well in creator style videos. Your plant based formulas like Hot Flash and mood and stress support are made for women in perimenopause. I could see a midlife reset here is my daily move testimonial, a botanical what is actually in it close up, and a calm end of day ritual that leans into the herbal story.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test.
+
+If you're interested, I'd be happy to send over a few concepts and examples of my work. You can also see more at reeloai.net. We could also go over pricing and what type of package would work best for your team.
+
+Best regards,
+
+Cayden
+
+---
+
+# Form-only prospects (paste into the site contact form)
+
+## Fresh Patch — https://www.freshpatch.com/pages/contact-us
+**Subject (if the form has one):** Short form video ideas for Fresh Patch
+
+Hello,
+
+I recently discovered Fresh Patch while looking through pet brands, and I immediately thought of a few creator style concepts. Your delivered tray of real, hydroponically grown grass is a clean alternative to pee pads. I could see a puppy uses real grass indoors relief demo, a no more elevator emergencies city dog reel, and a potty training made easy moment for a new puppy.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test. You can see more at reeloai.net, and you can reach me at cayden.w.sims@gmail.com.
+
+Best regards,
+
+Cayden
+
+## Fygg — https://fygg.com/pages/contact
+**Subject (if the form has one):** Short form video concepts for Fygg
+
+Hello,
+
+I came across Fygg while looking through oral care products, and I immediately thought of a few video ideas that could help show your prebiotic toothpaste in action. Your microbiome friendly paste blends prebiotics and nano hydroxyapatite, with kid flavors like Chocolate Swirl and Coconut Cream. I could see a my kid actually asks to brush bathroom moment, a why fluoride free and prebiotic explainer, and a family morning routine.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test. You can see more at reeloai.net, and you can reach me at cayden.w.sims@gmail.com.
+
+Best regards,
+
+Cayden
+
+## Create Wellness — https://trycreate.co/pages/contact-us
+**Subject (if the form has one):** UGC video concepts for Create Wellness
+
+Hello,
+
+I was looking through Create Wellness and thought your products would work really well in short form videos because the format is such an easy sell. Your anti melt creatine monohydrate gummies give you creatine without the chalky scoop. I could see a creatine you actually want to eat flavor taste test, a gym or morning routine tie in, and a no more gritty powder swap that makes the point in seconds.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test. You can see more at reeloai.net, and you can reach me at cayden.w.sims@gmail.com.
+
+Best regards,
+
+Cayden
+
+## Teami Blends — https://www.teamiblends.com/pages/contact
+**Subject (if the form has one):** Short video concepts for Teami Blends
+
+Hello,
+
+I recently found Teami Blends while researching wellness brands, and I think your products would work really well in creator style videos. Your Detox and Digestion ACV gummies and loose leaf teas target bloat and sluggish digestion after meals. I could see an afternoon debloat routine, a steep and sip tea moment, and a feel lighter after meals story that keeps it simple.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test. You can see more at reeloai.net, and you can reach me at cayden.w.sims@gmail.com.
+
+Best regards,
+
+Cayden
+
+## Cure Hydration — https://www.curehydration.com/pages/contact
+**Subject (if the form has one):** Short form video ideas for Cure Hydration
+
+Hello,
+
+I recently discovered Cure Hydration while looking through hydration brands, and I immediately thought of a few creator style concepts. Your electrolyte mix is built on coconut water and pink Himalayan salt with no added sugar. I could see a tear, pour, dissolve, and chug quick hydration demo, a morning after reset, and a post workout refuel without the sugary sports drink.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test. You can see more at reeloai.net, and you can reach me at cayden.w.sims@gmail.com.
+
+Best regards,
+
+Cayden
+
+## Perelel — https://perelelhealth.com/pages/contact-us
+**Subject (if the form has one):** Short form video concepts for Perelel
+
+Hello,
+
+I came across Perelel while looking through women's supplement products, and I immediately thought of a few video ideas that could help show your stage based vitamin packs. Your daily packs are tailored to a woman's exact life stage, from cycle support to prenatal by trimester. I could see a your daily pack for exactly this stage routine, a tear open pack demo, and a which pack is right for you walkthrough.
+
+Would something like that be worth talking about?
+
+My name is Cayden, and I create short product videos for social media and paid advertising. I handle the concept, script, visuals, voiceover, captions, and editing, so every video is ready to review and test. You can see more at reeloai.net, and you can reach me at cayden.w.sims@gmail.com.
+
+Best regards,
+
+Cayden
