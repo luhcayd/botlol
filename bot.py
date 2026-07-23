@@ -11,6 +11,13 @@ last_seen_keywords = {}
 # Track last known status of product pages
 last_product_status = {}
 
+# Cache validators (ETag / Last-Modified) per URL so unchanged pages cost
+# almost nothing: the server replies 304 Not Modified with no body.
+conditional_cache = {}
+
+# Cache the last fetched body per URL so a 304 can reuse it without re-downloading.
+body_cache = {}
+
 # Rotate through realistic user agents (stealth)
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
@@ -57,25 +64,54 @@ def send(msg: str) -> None:
         log(f"Send error: {e}")
 
 def fetch(url: str) -> str:
-    """Fetch a page using a random User-Agent and basic stealth delays."""
+    """Fetch a page politely, using conditional requests to stay lightweight.
+
+    If we've seen this URL before, we send the cached ETag / Last-Modified so the
+    server can reply 304 Not Modified with no body — near-zero cost when nothing
+    changed, which is the common case between drops.
+    """
     headers = {
         "User-Agent": random.choice(USER_AGENTS),
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
         "Connection": "close",
     }
-    # Short random delay before each request so we don't hammer sites
+    # Reuse cached validators so the server can short-circuit with a 304.
+    validators = conditional_cache.get(url, {})
+    if "etag" in validators:
+        headers["If-None-Match"] = validators["etag"]
+    if "last_modified" in validators:
+        headers["If-Modified-Since"] = validators["last_modified"]
+
+    # Short random delay before each request so we don't hammer sites.
     time.sleep(random.uniform(1.0, 3.0))
 
     resp = requests.get(url, headers=headers, timeout=20)
+
+    # Nothing changed since last time — reuse the cached body, no re-download.
+    if resp.status_code == 304:
+        log(f"Not modified (304), reusing cache: {url}")
+        return body_cache.get(url, "")
+
     if resp.status_code in (403, 429):
-        warn = f"Stealth warning: got status {resp.status_code} for {url}"
+        warn = f"Got status {resp.status_code} (rate-limited or blocked) for {url}"
         print(warn)
         log(warn)
         return ""
 
     resp.raise_for_status()
-    return resp.text.lower()
+
+    # Store fresh validators for next time so future checks can be conditional.
+    new_validators = {}
+    if resp.headers.get("ETag"):
+        new_validators["etag"] = resp.headers["ETag"]
+    if resp.headers.get("Last-Modified"):
+        new_validators["last_modified"] = resp.headers["Last-Modified"]
+    conditional_cache[url] = new_validators
+
+    body = resp.text.lower()
+    body_cache[url] = body
+    return body
 
 def get_keywords_for_site(site_url: str):
     """Return per-store keywords if defined, else global KEYWORDS."""
@@ -151,7 +187,7 @@ def check_product_pages():
             log(err)
 
 def main():
-    print("Advanced stealth bot running. Only alerts when NEW items appear or products go IN STOCK.\n")
+    print("Restock monitor running. Only alerts when NEW items appear or products go IN STOCK.\n")
     log("Bot started.")
 
     while True:
