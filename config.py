@@ -6,6 +6,15 @@ per-store keywords, and product-page monitoring.
 DISCORD_WEBHOOK_URL = "https://discordapp.com/api/webhooks/1445960601665802392/ousoXLnn0oiIK9Z-0_Se-R7jCp-EhapMKuanruFgyMoJH7DHNR9u8g1t1X0eyAFSOgAR"
 USER_ID_TO_PING = "1426740804688281701"
 
+# Phone push via ntfy.sh (optional, free). Set NTFY_TOPIC to any hard-to-guess
+# string, then subscribe to that same topic in the ntfy app (iOS/Android) or at
+# https://ntfy.sh/<your-topic>. Alerts arrive as instant push notifications you
+# can tap to open the product page. Leave "" to disable. Pick something unique
+# and private — anyone who knows the topic can read your alerts.
+NTFY_TOPIC = ""
+# Only change this if you self-host ntfy; otherwise the public server is fine.
+NTFY_SERVER = "https://ntfy.sh"
+
 # Base delay between full rounds of checks (in seconds)
 CHECK_INTERVAL = 60
 

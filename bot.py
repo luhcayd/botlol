@@ -54,14 +54,49 @@ def log(message: str) -> None:
     except Exception as e:
         print("Log error:", e)
 
-def send(msg: str) -> None:
-    """Send a message to Discord via your webhook and log it."""
-    try:
-        requests.post(config.DISCORD_WEBHOOK_URL, json={"content": msg}, timeout=10)
+def send(msg: str, link: str = "") -> None:
+    """Fan an alert out to every configured channel (Discord + ntfy push) and log it.
+
+    `link`, when given, becomes a tap-through action on the phone push so you can
+    jump straight to the product page from the notification.
+    """
+    delivered = False
+
+    # Channel 1: Discord webhook (optional).
+    webhook = getattr(config, "DISCORD_WEBHOOK_URL", "")
+    if webhook:
+        try:
+            requests.post(webhook, json={"content": msg}, timeout=10)
+            delivered = True
+        except Exception as e:
+            print("Discord send error:", e)
+            log(f"Discord send error: {e}")
+
+    # Channel 2: ntfy.sh push to your phone (optional, free). Subscribe to the
+    # same topic in the ntfy app to receive these as instant push notifications.
+    topic = getattr(config, "NTFY_TOPIC", "")
+    if topic:
+        try:
+            headers = {"Title": "Pokemon restock", "Priority": "high", "Tags": "fire"}
+            if link:
+                # Tapping the notification opens the product page directly.
+                headers["Click"] = link
+            server = getattr(config, "NTFY_SERVER", "https://ntfy.sh").rstrip("/")
+            requests.post(
+                f"{server}/{topic}",
+                data=msg.encode("utf-8"),
+                headers=headers,
+                timeout=10,
+            )
+            delivered = True
+        except Exception as e:
+            print("ntfy send error:", e)
+            log(f"ntfy send error: {e}")
+
+    if delivered:
         log(f"ALERT SENT: {msg.replace(chr(10), ' | ')}")
-    except Exception as e:
-        print("Send error:", e)
-        log(f"Send error: {e}")
+    else:
+        log(f"ALERT NOT SENT (no channel configured): {msg.replace(chr(10), ' | ')}")
 
 def fetch(url: str) -> str:
     """Fetch a page politely, using conditional requests to stay lightweight.
@@ -138,7 +173,7 @@ def check_search_sites():
                 if now_present and not was_present:
                     last_seen_keywords[key] = True
                     msg = f"<@{config.USER_ID_TO_PING}> 🔥 NEW ITEM APPEARED (keyword: '{kw}')\n{site}"
-                    send(msg)
+                    send(msg, link=site)
                 else:
                     last_seen_keywords[key] = now_present
 
@@ -177,7 +212,7 @@ def check_product_pages():
             if status == "in_stock" and prev != "in_stock":
                 last_product_status[url] = "in_stock"
                 msg = f"<@{config.USER_ID_TO_PING}> 🔥 PRODUCT IN STOCK: {name}\n{url}"
-                send(msg)
+                send(msg, link=url)
             else:
                 last_product_status[url] = status
 
